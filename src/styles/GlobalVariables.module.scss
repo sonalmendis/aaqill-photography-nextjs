@@ -1,0 +1,54 @@
+@use "sass:map";
+$primary-color: red;
+
+$sizes: (
+  "mobileM": "480px",
+  "mobileL": "640px",
+  "tablet": "768px",
+  "laptop": "1024px",
+  "laptopL": "1440px",
+  "desktopL": "1920px",
+  "desktopXL": "2560px"
+);
+
+
+
+  @mixin mobileM {
+    @media (min-width: map.get($sizes, "mobileM")) {
+      @content;
+    }
+  }
+  
+  @mixin mobileL {
+    @media (min-width: map.get($sizes, "mobileL")) {
+      @content;
+    }
+  }
+  
+  @mixin tablet {
+    @media (min-width: map.get($sizes, "tablet")) {
+      @content;
+    }
+  }
+  @mixin laptop {
+    @media (min-width: map.get($sizes, "laptop")) {
+      @content;
+    }
+  }
+  @mixin laptopL {
+    @media (min-width: map.get($sizes, "laptopL")) {
+      @content;
+    }
+  }
+  
+  @mixin desktopL {
+    @media (min-width: map.get($sizes, "desktopL")) {
+      @content;
+    }
+  }
+  
+  @mixin desktopXL {
+    @media (min-width: map.get($sizes, "desktopXL")) {
+      @content;
+    }
+  }

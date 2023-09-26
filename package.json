@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@next/font": "^13.5.3",
     "next": "latest",
     "react": "latest",
     "react-dom": "latest",
@@ -21,6 +20,7 @@
   "devDependencies": {
     "babel-plugin-styled-components": "^2.1.4",
     "eslint": "latest",
-    "eslint-config-next": "latest"
+    "eslint-config-next": "latest",
+    "sass": "^1.68.0"
   }
 }

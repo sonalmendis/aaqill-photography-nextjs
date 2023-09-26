@@ -1,0 +1,278 @@
+@use "./GlobalVariables.module.scss" as gvars;
+
+
+.HomeWrapper{
+  .intro-section,
+  .section2 {
+    img {
+      margin-top: 2em;
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+  }
+  .offset-inview {
+    margin-top: -19em;
+
+    margin-bottom: 18.9em;
+    z-index: -1;
+    position: relative;
+  }
+  .section2 {
+    @include gvars.laptop {
+      display: none;
+    }
+  }
+
+  .intro-section {
+    position: relative;
+    .desktop-text-container {
+      display: none;
+    }
+    @include gvars.laptop {
+      .desktop-text-container {
+        width: 26em;
+        position: absolute;
+        display: block;
+        left: 56vw;
+        bottom: -26em;
+
+        display: block;
+        > * {
+          display: block;
+        }
+      }
+      display: flex;
+      height: 78vw;
+      justify-content: space-between;
+      align-items: center;
+      h2,
+      p {
+        display: none;
+      }
+      img {
+        height: 100%;
+        margin-top: 0;
+      }
+      picture {
+        display: block;
+      }
+      > .image-container {
+        height: 100%;
+        flex: 1 1 50%;
+        picture {
+          height: 100%;
+        }
+        img {
+          object-fit: cover;
+        }
+      }
+      .left-column-desktop {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        flex: 0 1 39%;
+        margin-right: 2em;
+        .image-container:first-of-type {
+          height: 55%;
+
+          picture {
+            height: 100%;
+          }
+        }
+        .image-container:last-of-type {
+          margin-top: 3em;
+          flex: 1 1 auto;
+          picture {
+            height: 100%;
+          }
+        }
+      }
+    }
+    .image-container.desktop-visible {
+      display: none;
+      @include gvars.laptop {
+        display: block;
+      }
+    }
+  }
+  .desktop-intro-container,
+  .desktop-text-container {
+    display: none;
+    padding: 2.7em 2.7em;
+    background: white;
+  }
+  .parallax-container {
+  }
+  .desktop-intro-container {
+    position: absolute;
+
+    left: -78vw;
+    top: calc(32vw * 0.5);
+    bottom: initial;
+    width: 23em;
+
+    @include gvars.laptop {
+      display: block;
+    }
+  }
+
+  .full-width-image-section {
+    padding-bottom: 0;
+    .image-container {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+    img {
+      width: 100%;
+      display: block;
+    }
+    q {
+      font-family: "Abhaya Libre", sans-serif;
+      font-weight: bold;
+      position: absolute;
+      background: white;
+      padding: 0.5em 1em;
+      bottom: 20%;
+      text-transform: capitalize;
+      @include gvars.laptop {
+        font-size: 1.2em;
+        bottom: 15%;
+      }
+    }
+  }
+
+  .white-section {
+    @include gvars.laptop {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 1fr;
+      grid-column-gap: 3em;
+      grid-row-gap: 0px;
+    }
+  }
+  .vertical-line {
+    width: 2px;
+    height: 2em;
+    background: white;
+    margin-left: auto;
+    margin-right: auto;
+    @include gvars.laptop {
+      display: none;
+    }
+  }
+
+  video.zoom-video {
+    width: 100%;
+    display: block;
+  }
+}
+
+.OpeningSectionWrapper{
+
+      height: 140vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    
+      @include gvars.laptop {
+        height: 200vh;
+    
+        // background: url(${background}) no-repeat top center;
+        // background-size: contain;
+      }
+      background-size: cover;
+      position: relative;
+      .background{
+        color: transparent;
+        z-index: -1;
+        width: 100%;
+        display:none;
+        object-fit: contain;
+        position: absolute;
+        top: -25vh;
+        @include gvars.laptop {
+          display: block;
+        }
+      }
+      .inner-container {
+        height: 100%;
+        width: 100%;
+        position: relative;
+        // background: url(${openingImage}) no-repeat top center;
+   
+        .desktop-background-container {
+          // display: none;
+          height: 100%;
+          position:absolute;
+          width:100%;
+
+          .mainOpeningImage{
+            position: absolute;
+            top: 0;
+            object-fit: cover;
+            width:100%;
+            height:100%;
+          }
+          @include gvars.laptop {
+            width: 70.6vw;
+            position:relative;
+          }
+        }
+       @include gvars.tablet {
+        //   background: url(${openingImageMedium}) no-repeat top center;
+        //   background-size: cover;
+        }
+        @include gvars.laptop {
+          background: none;
+        }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img.logo {
+          width: 80%;
+          margin-left: auto;
+          margin-right: auto;
+          display: block;
+         @include gvars.tablet {
+            width: 70%;
+          }
+          @include gvars.laptop {
+            width: 26vw;
+            position: absolute;
+            right: -6em;
+            bottom: 17em;
+          }
+        }
+        img.arrows {
+          position: absolute;
+          width: 46px;
+          bottom: 35%;
+        }
+    
+        @include gvars.laptop {
+          .desktop-background-container {
+            display: block;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+          }
+        }
+      }
+      .text-container {
+        background: black;
+        color: white;
+        padding: 2rem;
+        border-radius: 4px;
+      }
+      .colors-container {
+        position: absolute;
+        bottom: -2%;
+      }
+
+
+
+}

@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from "react";
-import "@/styles/globals.css";
+import "@/styles/GlobalStyles.scss";
 import Head from "next/head";
 import { Abhaya_Libre } from "next/font/google";
-import localFont from "@next/font/local";
+import localFont from "next/font/local";
 import { ParallaxProvider } from "react-scroll-parallax";
 
 // How to import from GoogleFonts:

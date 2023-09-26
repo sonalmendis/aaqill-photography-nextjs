@@ -1,3 +1,4 @@
+@use "./GlobalVariables.module.scss" as gvars;
 
 /****
 NORMALIZE
@@ -287,3 +288,224 @@ body {
 
   overflow-x: hidden;
 }
+
+
+*{
+    box-sizing:border-box;
+
+}
+html{
+    font-size:100%;
+}
+
+body{
+    font-size:16px;	
+    font-family: "Sofia Pro", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    overflow-x: hidden;
+    @include gvars.tablet {
+        font-size: 20px;
+    }
+    @include gvars.laptop {
+        font-size: 16px;
+    }
+}
+body.menu-expanded{
+    overflow:hidden;
+}
+
+
+
+
+/**********
+ * GRIDS
+ ********/
+
+ .outer-grid{
+ 
+    width:100%;
+    max-width:500px;
+    margin-left:auto;
+    margin-right:auto;
+    padding-left:1.25rem;
+    padding-right:1.25rem;
+}
+
+.inner-grid{
+
+}
+.inner-grid2{
+    
+}
+
+// Vertical padding is my 2023 way of doing margin. I'm using padding instead of margin because it's easier to control the spacing between elements. We can also use display:grid instead of flexbox for inside elements
+
+// Adding the "no-top" class fixes the issue of having two divs that are seperate sections but the same background colour. Without the "no-top" class, the top padding of the second div will be the same colour as the background, which makes it look even bigger than needed. If the second div has a different background color however then you don't need the "no-top" class as it will "look" spaced out enough.
+
+.vertical-padding-small{
+    padding-top: 1em;
+    padding-bottom: 1em;
+    &.no-top{
+        padding-top:0;
+    }   
+}
+.vertical-padding-normal{
+    padding-top: 2em;
+    padding-bottom: 2em;
+    &.no-top{
+        padding-top:0;
+    }
+}
+.vertical-padding-large{
+    padding-top: 3em;
+    padding-bottom: 3em;
+    &.no-top{
+        padding-top:0;
+    }
+}
+
+@include gvars.tablet {
+    .outer-grid{
+        padding-left: 2em;
+    padding-right: 2em;
+    max-width: unset;
+    }
+
+    .tablet-inner-grid{
+        padding-left: 7em;
+    padding-right: 7em;
+    }
+
+    .vertical-padding-normal{
+    padding-top: 3em;
+    padding-bottom: 3em;
+    &.no-top{
+        padding-top:0;
+    }
+}
+.vertical-padding-large{
+    padding-top: 4em;
+    padding-bottom: 4em;
+    &.no-top{
+        padding-top:0;
+    }
+}
+
+
+}
+
+@include gvars.laptop {
+    .outer-grid{
+        width: 96%;
+        max-width:unset;
+        margin-left:auto;
+        margin-right:auto;
+        padding-left:0;
+        padding-right:0;
+    }
+    
+    .desktop-inner-grid{
+        width: 70.6vw;
+        max-width: unset;
+    
+    }
+
+    .desktop-vertical-padding-small{
+        padding-top: 2em;
+        padding-bottom: 2em;
+    }
+
+    .desktop-vertical-padding-large{
+        padding-top: 7em;
+        padding-bottom: 7em;
+    }
+
+}
+
+
+/**********
+ * FONTS
+ ********/
+
+ h1,h2,h3,h4,h5,p,li,span,ul{
+    margin:0;
+
+}
+
+ h1{
+    font-family: 'Sofia Pro', sans-serif;
+    margin-bottom: 0.6em;
+ }
+
+ h2{
+    font-family: 'Abhaya Libre', sans-serif;
+    font-size:3em;
+    margin-bottom: 0.6em;
+    @include gvars.laptop {
+        font-size:2em;
+    }
+ }
+
+ h3{
+    font-weight: 300;
+    letter-spacing: 3px;
+    font-size: 1em;
+    text-align: center;
+    margin-top: 1em;
+    text-transform:uppercase;
+ }
+
+ h4{
+    color: #8e8e8e;
+    text-transform:uppercase;
+    font-size: 0.9em;
+    letter-spacing: 1.2px;
+    font-weight: 300;
+    
+ }
+h2::after{
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: black;
+    margin-top: 0.1em;
+    @include gvars.tablet {
+        margin-left: auto;
+    margin-right: auto;
+    
+    }
+    @include gvars.laptop {
+margin-left:0;
+margin-right:0;
+width: 30px;
+    }
+}
+ a{
+    text-decoration:none;
+    color:inherit;
+
+ }
+
+p,li{
+    font-size: 1.15em;
+    line-height: 1.45em;
+    margin-bottom:1em;
+    &:last-child{
+        margin-bottom:0;
+    }
+
+    @include gvars.tablet {
+        font-size: 1em;
+    }
+}
+
+
+/****
+MISC
+*/
+
+.LazyLoad.is-visible {
+            height: auto !important;
+        }
