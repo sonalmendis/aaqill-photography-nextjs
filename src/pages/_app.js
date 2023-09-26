@@ -17,6 +17,10 @@ const SofiaPro = localFont({
   formats: ["woff2"],
 });
 
+export function reportWebVitals(metric) {
+  console.log(metric);
+}
+
 export default function App({ Component, pageProps }) {
   // const [scrollEl, setScrollElement] = useState(null);
   // const ref = useRef();
