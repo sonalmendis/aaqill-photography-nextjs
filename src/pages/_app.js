@@ -4,6 +4,7 @@ import Head from "next/head";
 import { Abhaya_Libre } from "next/font/google";
 import localFont from "next/font/local";
 import { ParallaxProvider } from "react-scroll-parallax";
+import Header from "@/Components/Header";
 
 // How to import from GoogleFonts:
 const AbhayaLibre = Abhaya_Libre({
@@ -37,6 +38,7 @@ export default function App({ Component, pageProps }) {
 
       <main className={`${SofiaPro.className} ${AbhayaLibre.className}`}>
         <ParallaxProvider>
+          <Header />
           <Component {...pageProps} />
         </ParallaxProvider>
       </main>

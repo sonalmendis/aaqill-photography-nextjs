@@ -1,0 +1,112 @@
+@use "../styles/GlobalVariables.module.scss" as gvars;
+
+.BlackSectionWrapper{
+
+    background: black;
+    position: relative;
+    color: white;
+    .first-section .image-container > img {
+      margin-top: 2em;
+      width: 100%;
+      display: block;
+  
+      @include gvars.laptop {
+        width: 48%;
+        height:auto;
+      }
+    }
+    .image-container {
+      position: relative;
+  
+      @include gvars.laptop {
+        margin-bottom: 7em;
+      }
+      &.desktop-right {
+        @include gvars.laptop {
+          img {
+            margin-left: auto;
+          }
+        }
+      }
+    }
+    .quote-container {
+      padding: 2em 1.5em;
+      border: 2px solid white;
+      border-radius: 10px;
+      @include gvars.laptop {
+        border: none;
+        background: white;
+        color: black;
+        width: 25em;
+        border-radius: 0;
+        position: absolute;
+        left: 38%;
+        bottom: 20vw;
+      }
+      img {
+        width: 2.5em;
+        margin-bottom: 1.4em;
+        @include gvars.laptop {
+    
+  
+          margin-bottom: 0.8em;
+        }
+      }
+    }
+  
+    .quote-container.second {
+      @include gvars.laptop {
+        width: 27em;
+  
+        left: initial;
+        right: 40%;
+  
+        br:nth-child(2n) {
+          display: none;
+        }
+      }
+    }
+    p.quote {
+      font-family: "Abhaya Libre", sans-serif;
+      font-size: 29px;
+      line-height: 40px;
+      font-weight: bold;
+      @include gvars.tablet {
+        font-size: 2em;
+        line-height: 1.3em;
+      }
+      @include gvars.laptop {
+        font-size: 1.2em;
+        line-height: 1.5em;
+      }
+    }
+  
+    .first-section .image-container img {
+      margin-top: 0;
+
+    }
+    .full-width-image-section2 {
+      img {
+        width: 100%;
+      }
+      .image-container {
+        margin-bottom: 3em;
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+        @include gvars.laptop {
+          margin-bottom: 8em;
+        }
+      }
+    }
+  
+    .section3 {
+      @include gvars.laptop {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr;
+        grid-column-gap: 3em;
+        grid-row-gap: 0px;
+      }
+    }
+}

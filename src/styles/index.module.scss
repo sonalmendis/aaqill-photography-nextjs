@@ -276,3 +276,30 @@
 
 
 }
+
+.PictureFooterContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.6em;
+}
+
+.PhotoWithCaption{
+  margin-bottom: 3em;
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+  img {
+    width: 100%;height: auto;
+  }
+}
+
+.WhiteSectionWrapper {
+  @include gvars.laptop {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 3em;
+    grid-row-gap: 0px;
+  }
+}

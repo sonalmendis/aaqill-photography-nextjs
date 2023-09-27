@@ -1,0 +1,18 @@
+@use "../styles/GlobalVariables.module.scss" as gvars;
+
+.ColourSquare{
+      // styles for a basic minimal rounded corner button
+  height: 10px;
+  width: 10px;
+//   background-color: ${(props) => props.color};
+  display: inline-block;
+  margin-right: 4px;
+  &:last-of-type {
+    margin-right: 0;
+  }
+
+  @include gvars.laptop {
+    height: 12px;
+    width: 12px;
+  }
+}

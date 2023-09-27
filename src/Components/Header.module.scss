@@ -1,0 +1,75 @@
+@use "../styles/GlobalVariables.module.scss" as gvars;
+.HeaderWrapper{
+    position: fixed;
+    background-color: transparent;
+    z-index: 99;
+    transition: background-color 0.2s ease-out;
+    color: white;
+    width: 100%;
+  
+    // This is the outer container needed to have a smoothly working expandable mobile menu, this contains only the top parts
+    .top-container {
+      background: rgba(0, 0, 0, 1);
+      transition: all 0.2s;
+  
+      .inner-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+  
+        z-index: 3;
+        position: relative;
+      }
+    }
+  
+    .left-column {
+      .logo {
+        width: 76px;
+        display: block;
+        @include gvars.laptop {
+          width: 4em;
+        }
+      }
+    }
+  
+    // Hide the links on mobile and then show them on larger screens while hiding the button
+    .right-column {
+      a {
+        letter-spacing: 3px;
+        font-size: 1.4em;
+  
+        line-height: 0.8em;
+      }
+      @include gvars.laptop {
+        a {
+          display: inline-block;
+          font-size: 1.1em;
+        }
+        .hamburger-react {
+          display: none;
+        }
+      }
+    }
+  
+    .mobile-menu-container {
+      height: 100vh;
+      margin-top: -150vh;
+      opacity: 0;
+      z-index: 2;
+      transition: all 0.2s;
+      color: white;
+      background: #393939;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      &.open {
+        opacity: 1;
+        margin-top: 0;
+      }
+      a {
+        display: block;
+        cursor: pointer;
+        margin-bottom: 4vh;
+        font-size: 1.6rem;
+      }
+    }
+}
