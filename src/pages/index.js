@@ -165,8 +165,8 @@ export default function Home(props) {
             <div className={`${homeStyles["desktop-text-container"]}`}>
               <h2>Stepping out of the comfort zone</h2>
               <p>
-                Aaqil fearlessly captures the essence of city life as well as
-                the essence of nature through his lens, unapologetically
+                TEST. Aaqil fearlessly captures the essence of city life as well
+                as the essence of nature through his lens, unapologetically
                 exploring the raw and unfiltered reality of the streets as a
                 passionate and talented photographer.
               </p>
