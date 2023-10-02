@@ -6,3 +6,4 @@ pipelines:
           - node
         script:
           - ssh -t -v root@64.227.149.165
+          - echo "Hello World"
