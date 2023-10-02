@@ -5,4 +5,4 @@ pipelines:
         caches:
           - node
         script:
-          - ssh root@64.227.149.165
+          - ssh -t -v root@64.227.149.165
