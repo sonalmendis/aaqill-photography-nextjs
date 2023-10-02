@@ -5,4 +5,4 @@ pipelines:
         caches:
           - node
         script:
-          - ssh root@64.227.149.165 'cd /var/www/aaqill-photography && git pull && npm install && npm run build'
+          - ssh root@64.227.149.165
