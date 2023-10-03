@@ -16,7 +16,7 @@ import ColourSquare from "@/Components/ColourSqare";
 import ColourSquareContainer from "@/Components/ColourSqareContainer";
 import BlackSection from "@/Components/BlackSection";
 import ImageDivider from "@/Components/ImageDivider";
-import ContactFormMedia from "../Components/ContactFormMedia";
+
 // Images
 import quoteMark from "../../public/img/quote-mark.svg";
 import quoteMarkBlack from "../../public/img/quote-mark-black.svg";
@@ -70,6 +70,11 @@ import loversPerch from "../../public/img/photos/loversperch-small.webp";
 import camelLarge from "../../public/img/photos/camel-large.webp";
 import camelMedium from "../../public/img/photos/camel-medium.webp";
 import camel from "../../public/img/photos/camel-small.webp";
+
+// Lazy loaded components
+const ContactFormMedia = dynamic(() =>
+  import("../Components/ContactFormMedia")
+);
 
 export default function Home(props) {
   const desktop = useMediaQuery({
