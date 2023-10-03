@@ -38,9 +38,7 @@ export default function App({ Component, pageProps }) {
         <title>Aaqill Photography</title>
       </Head>
 
-      <main
-        className={`${SofiaPro.className} ${AbhayaLibre.className} ${SofiaPro.variable} ${AbhayaLibre.variable}`}
-      >
+      <main className={`${SofiaPro.variable} ${AbhayaLibre.variable}`}>
         <ParallaxProvider>
           <Header />
           <Component {...pageProps} />
