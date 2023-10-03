@@ -1,9 +1,0 @@
-pipelines:
-  default:
-    - step:
-        name: Build and Deploy
-        caches:
-          - node
-        script:
-          - ssh root@64.227.149.165
-          - echo "Hello World"
