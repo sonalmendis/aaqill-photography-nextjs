@@ -134,7 +134,7 @@ export default function Home(props) {
 
             <div className="parallax-container" ref={theparallax.ref}>
               <div className={`${homeStyles["desktop-intro-container"]}`}>
-                <h2>Welcome 2</h2>
+                <h2>Welcome 22</h2>
                 <p>
                   Welcome to Aaqil's Photography, where every picture tells a
                   story. Aaqil captures life's moments with an eye for detail
