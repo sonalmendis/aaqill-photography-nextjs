@@ -10,12 +10,14 @@ import Header from "@/Components/Header";
 const AbhayaLibre = Abhaya_Libre({
   weight: ["400", "700"],
   subsets: ["latin"],
+  variable: "--font1",
 });
 
 // How to import from local:
 const SofiaPro = localFont({
   src: "../../public/Fonts/sofiapro-light-webfont.woff2",
   formats: ["woff2"],
+  variable: "--font2",
 });
 
 export function reportWebVitals(metric) {
@@ -36,7 +38,9 @@ export default function App({ Component, pageProps }) {
         <title>Aaqill Photography</title>
       </Head>
 
-      <main className={`${SofiaPro.className} ${AbhayaLibre.className}`}>
+      <main
+        className={`${SofiaPro.className} ${AbhayaLibre.className} ${SofiaPro.variable} ${AbhayaLibre.variable}`}
+      >
         <ParallaxProvider>
           <Header />
           <Component {...pageProps} />

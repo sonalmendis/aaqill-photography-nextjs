@@ -434,13 +434,14 @@ body.menu-expanded{
 }
 
  h1{
-    font-family: 'Sofia Pro', sans-serif;
+    font-family: var(--font2), sans-serif;
     margin-bottom: 0.6em;
  }
 
  h2{
-    font-family: 'Abhaya Libre', sans-serif;
+    font-family: var(--font1), sans-serif;
     font-size:3em;
+    font-weight:700;
     margin-bottom: 0.6em;
     @include gvars.laptop {
         font-size:2em;
