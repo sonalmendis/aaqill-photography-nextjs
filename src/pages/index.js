@@ -153,7 +153,7 @@ export default function Home(props) {
         <div
           className={`${homeStyles["intro-section"]} outer-grid tablet-inner-grid vertical-padding-large desktop-vertical-padding-small desktop-inner-grid `}
         >
-          <h2>Welcome</h2>
+          <h2>Welcome 2</h2>
           <p>
             Welcome to Aaqil's Photography, where every picture tells a story.
             Aaqil captures life's moments with an eye for detail and a passion
