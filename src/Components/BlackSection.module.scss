@@ -15,33 +15,67 @@
         height:auto;
       }
     }
-    .image-container {
-      position: relative;
-  
-      @include gvars.laptop {
-        margin-bottom: 7em;
-      }
-      &.desktop-right {
-        @include gvars.laptop {
-          img {
-            margin-left: auto;
-          }
+    .section-container{
+      position:relative;
+      &.second{  
+        // margin-left: auto;
+        .image-container{
+          order:2;
         }
       }
+      @include gvars.laptop {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr;
+        grid-column-gap:4em;
+        grid-row-gap: 0px;
+        justify-content: space-between;
+        align-items: center;
+      }
+  
+    }
+    .image-container {
+      position: relative;
+      height:50vh;
+      margin-bottom: 3em;
+      @include gvars.laptop {
+        margin-bottom: 7em;
+        width:33vw;
+        height:50vw;
+      }
+      img{
+        object-fit: cover;
+      }
+ 
+    }
+    .outer-quote-container{
+      @include gvars.laptop {
+        width: auto;
+        flex: 1 0 auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+
+        
+      }
+   
     }
     .quote-container {
-      padding: 2em 1.5em;
-      border: 2px solid white;
+      padding: 0 1.5em;
+      text-align:center;
+      // border: 2px solid white;
       border-radius: 10px;
+      margin-bottom:5em;
       @include gvars.laptop {
-        border: none;
-        background: white;
-        color: black;
-        width: 25em;
-        border-radius: 0;
-        position: absolute;
-        left: 38%;
-        bottom: 20vw;
+text-align:left;
+padding: 0;
+max-width:25em;
+        // width: 25em;
+        // border-radius: 0;
+        // position: absolute;
+        // left: 38%;
+        // bottom: 20vw;
       }
       img {
         width: 2.5em;
@@ -56,10 +90,10 @@
   
     .quote-container.second {
       @include gvars.laptop {
-        width: 27em;
+        // width: 27em;
   
-        left: initial;
-        right: 40%;
+        // left: initial;
+        // right: 40%;
   
         br:nth-child(2n) {
           display: none;
@@ -68,12 +102,12 @@
     }
     p.quote {
       font-family: "Abhaya Libre", sans-serif;
-      font-size: 29px;
-      line-height: 40px;
-      font-weight: bold;
+      font-size: 1.4em;
+      line-height: 1.3em;
+      font-weight: 300;
       @include gvars.tablet {
-        font-size: 2em;
-        line-height: 1.3em;
+        // font-size: 2em;
+        // line-height: 1.3em;
       }
       @include gvars.laptop {
         font-size: 1.2em;
@@ -86,8 +120,15 @@
 
     }
     .full-width-image-section2 {
+      .section-container{
+        margin-bottom:2em;
+        clip-path: inset(0);
+      }
       img {
         width: 100%;
+        object-fit: cover;
+        position:fixed;
+        top:0;
       }
       .image-container {
         margin-bottom: 3em;

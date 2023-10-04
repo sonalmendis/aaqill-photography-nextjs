@@ -16,6 +16,7 @@ import ColourSquare from "@/Components/ColourSqare";
 import ColourSquareContainer from "@/Components/ColourSqareContainer";
 import BlackSection from "@/Components/BlackSection";
 import ImageDivider from "@/Components/ImageDivider";
+import Spacer from "@/Components/Spacer";
 
 // Images
 import quoteMark from "../../public/img/quote-mark.svg";
@@ -36,10 +37,12 @@ import temple from "../../public/img/photos/temple-small.webp";
 import girlLarge from "../../public/img/photos/girl-large.webp";
 import girlMedium from "../../public/img/photos/girl-medium.webp";
 import girl from "../../public/img/photos/girl-small.webp";
+import girlPort from "../../public/img/photos/girl-port.webp";
 
 import landscapeLarge from "../../public/img/photos/nature-landscape-large.webp";
 import landscapeMedium from "../../public/img/photos/nature-landscape-medium.webp";
 import landscape from "../../public/img/photos/nature-landscape-small.webp";
+import full2port from "../../public/img/photos/full-2-port.webp";
 
 import sageLarge from "../../public/img/photos/sage-large.webp";
 import sage from "../../public/img/photos/sage-small.webp";
@@ -81,6 +84,10 @@ export default function Home(props) {
     query: `${GlobalVariables.device.laptop}`,
   });
 
+  const portrait = useMediaQuery({
+    query: `${GlobalVariables.device.portrait}`,
+  });
+
   // const desktop = true;
 
   const [isDesktop, setisDesktop] = useState(false);
@@ -100,8 +107,19 @@ export default function Home(props) {
     disabled: !isDesktop,
   });
 
+  const blackSectionParallax = useParallax({
+    speed: 15,
+    disabled: !isDesktop,
+  });
+
+  const blackSectionParallax2 = useParallax({
+    speed: 15,
+    disabled: !isDesktop,
+  });
+
   useEffect(() => {
     setisDesktop(desktop);
+    console.log(portrait);
   }, [desktop]);
 
   return (
@@ -229,15 +247,41 @@ export default function Home(props) {
           className={`${homeStyles["full-width-image-section"]} vertical-padding-normal desktop-vertical-padding-large`}
         >
           <div className={`${homeStyles["image-container"]}`}>
-            <Image src={girlMedium} alt="Girl looking out window" />
+            {/* <Image
+              loader={({ width }) => width}
+              src={girlLarge}
+              alt="Girl looking out window"
+            /> */}
 
-            <q>Photographer’s capture the essence of life</q>
+            <picture>
+              <source
+                media={`${GlobalVariables.device.portrait}`}
+                srcSet="img/photos/girl-port.webp"
+              />
+              <source
+                media={`${GlobalVariables.device.laptop}`}
+                srcSet="img/photos/girl-large.webp"
+              />
+              <Image src={girlLarge} alt="Girl looking out window" />
+            </picture>
+
+            {/* <q>Photographer’s capture the essence of life</q> */}
           </div>
 
           <div className={`${homeStyles["image-container"]}`}>
-            <Image src={landscapeMedium} alt="Landscape" />
+            <picture>
+              <source
+                media={`${GlobalVariables.device.portrait}`}
+                srcSet="img/photos/full-2-port.webp"
+              />
+              <source
+                media={`${GlobalVariables.device.laptop}`}
+                srcSet="img/photos/nature-landscape-large.webp"
+              />
+              <Image src={landscapeLarge} alt="Landscape" />
+            </picture>
 
-            <q>And the mysteries of nature</q>
+            {/* <q>And the mysteries of nature</q> */}
           </div>
         </div>
 
@@ -245,16 +289,22 @@ export default function Home(props) {
 
         <BlackSection>
           <div
-            className={`${BlackSectionStyles["first-section"]} outer-grid desktop-inner-grid tablet-inner-grid vertical-padding-normal`}
+            className={`${BlackSectionStyles["first-section"]} outer-grid desktop-inner-grid tablet-inner-grid vertical-padding-large`}
           >
-            <div className={`${BlackSectionStyles["image-container"]}`}>
-              <Image src={sageLarge} alt="Sage" />
+            <Spacer space="s8"></Spacer>
+            <div className={`${BlackSectionStyles["section-container"]}`}>
+              <div className={`${BlackSectionStyles["image-container"]}`}>
+                <Image src={sageLarge} alt="Sage" fill />
 
-              <div className={`${BlackSectionStyles["vertical-line"]}`}></div>
+                {/* <div className={`${BlackSectionStyles["vertical-line"]}`}></div> */}
+              </div>
 
-              <div>
+              <div
+                className={`${BlackSectionStyles["outer-quote-container"]}`}
+                ref={blackSectionParallax.ref}
+              >
                 <div className={`${BlackSectionStyles["quote-container"]}`}>
-                  <Image src={quoteMarkBlack} alt="Quote mark" />
+                  <Image src={quoteMark} alt="Quote mark" />
                   <p className={`${BlackSectionStyles.quote}`}>
                     "In time we will tell our stories to the world about our
                     daily living and small joys"
@@ -262,27 +312,33 @@ export default function Home(props) {
                 </div>
               </div>
             </div>
-
             <div
-              className={`${BlackSectionStyles["image-container"]} ${BlackSectionStyles["desktop-right"]}`}
+              className={`${BlackSectionStyles["section-container"]} ${BlackSectionStyles["second"]}`}
             >
-              <Image src={temple2Large} alt="Templ 2" />
+              <div className={`${BlackSectionStyles["image-container"]}`}>
+                <Image
+                  src={temple2Large}
+                  alt="Templ 2"
+                  sizes="(min-width:728px) 33vw, 100vw"
+                  fill
+                />
+              </div>
 
-              <div className={`${BlackSectionStyles["vertical-line"]}`}></div>
+              {/* <div className={`${BlackSectionStyles["vertical-line"]}`}></div> */}
 
-              <div>
+              <div
+                ref={blackSectionParallax2.ref}
+                className={`${BlackSectionStyles["outer-quote-container"]}`}
+              >
                 <div
                   className={`${BlackSectionStyles["quote-container"]}  ${BlackSectionStyles["second"]} `}
                 >
-                  <Image src={quoteMarkBlack} alt="Quote mark" />
+                  <Image src={quoteMark} alt="Quote mark" />
                   <p className={`${BlackSectionStyles.quote}`}>
                     Amidst the bustle of life, civilization thrives, <br />
-                    <br />
                     A tapestry woven with humanity's lives,
                     <br />
-                    <br />
                     From towering skyscrapers to humble abodes,
-                    <br />
                     <br />A melting pot of cultures and stories untold.
                   </p>
                 </div>
@@ -293,16 +349,19 @@ export default function Home(props) {
           <div
             className={`${BlackSectionStyles["full-width-image-section2"]} vertical-padding-normal`}
           >
-            <div className={`${BlackSectionStyles["image-container"]}`}>
-              <Image src={potMakerMedium} alt="Pot Maker" />
+            <div className={`${BlackSectionStyles["section-container"]}`}>
+              <div className={`${BlackSectionStyles["image-container"]}`}>
+                <Image src={potMakerMedium} alt="Pot Maker" />
+              </div>
 
-              <h3>THE POT MAKER</h3>
+              {/* <h3>THE POT MAKER</h3> */}
             </div>
 
-            <div className={`${BlackSectionStyles["image-container"]}`}>
-              <Image src={rugsMedium} alt="Bazaars" />
-
-              <h3>Bazaar Galore</h3>
+            <div className={`${BlackSectionStyles["section-container"]}`}>
+              <div className={`${BlackSectionStyles["image-container"]}`}>
+                <Image src={rugsMedium} alt="Bazaars" />
+              </div>
+              {/* <h3>Bazaar Galore</h3> */}
             </div>
           </div>
 
@@ -318,7 +377,7 @@ export default function Home(props) {
             <div className={homeStyles.PhotoWithCaption}>
               <Image src={potMaker2} alt="Pot Maker 2" />
 
-              <h3>The Pot Maker (II)</h3>
+              <h3>The Pot Maker</h3>
             </div>
           </div>
         </BlackSection>

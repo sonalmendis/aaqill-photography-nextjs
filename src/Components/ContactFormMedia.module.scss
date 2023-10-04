@@ -2,6 +2,7 @@
 
 
 .ContactFormMediaWrappeR{
+  padding:4em 0;
     video.zoom-video {
         width: 100%;
         display: block;
@@ -10,6 +11,7 @@
         margin-bottom: 2em;
       }
       @include gvars.laptop {
+
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 1fr;
@@ -24,6 +26,7 @@
 }
 
 .FormWrapper{
+  margin-bottom:2em;
     width: 100%; //change this to your liking
     @include gvars.laptop {
       width: 50vh; //change this to your liking

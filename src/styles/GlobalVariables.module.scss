@@ -31,7 +31,7 @@ $sizes: (
     }
   }
   @mixin laptop {
-    @media (min-width: map.get($sizes, "laptop")) {
+    @media (min-width: map.get($sizes, "laptop")) and (orientation: landscape) {
       @content;
     }
   }

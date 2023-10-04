@@ -365,6 +365,8 @@ body.menu-expanded{
     }
 }
 
+
+
 @include gvars.tablet {
     .outer-grid{
         padding-left: 2em;
@@ -473,8 +475,8 @@ h2::after{
     background: black;
     margin-top: 0.1em;
     @include gvars.tablet {
-        margin-left: auto;
-    margin-right: auto;
+    //     margin-left: auto;
+    // margin-right: auto;
     
     }
     @include gvars.laptop {

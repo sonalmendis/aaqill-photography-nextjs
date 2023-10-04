@@ -121,12 +121,29 @@
     padding-bottom: 0;
     .image-container {
       position: relative;
-      display: flex;
-      justify-content: center;
+      // display: flex;
+      // justify-content: center;
+      height:50vh;
+      width:100%;
+      margin-bottom:0.5em;
+      clip-path: inset(0);
+      // border:5px solid black;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+      @include gvars.laptop {
+        height:99vh;
+      }
     }
     img {
+      object-fit: cover;
       width: 100%;
       display: block;
+      position:fixed;
+      bottom: 0;
+      top: 0;
+      margin-top: auto;
+      margin-bottom: auto;
     }
     q {
       font-family: "Abhaya Libre", sans-serif;
