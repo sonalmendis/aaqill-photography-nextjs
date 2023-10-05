@@ -1,7 +1,21 @@
 import React, { useEffect } from "react";
 import styles from "./IntroAnimation.module.scss";
+import Image from "next/image";
 
 import openingImageLarge from "../../public/img/opening-image-large.webp";
+import openingBG from "../../public/img/opening-bg.webp";
+import image1 from "../../public/img/photos/IntroAnimation/1.jpg";
+import image2 from "../../public/img/photos/IntroAnimation/2.jpg";
+import image3 from "../../public/img/photos/IntroAnimation/3.jpg";
+import image4 from "../../public/img/photos/IntroAnimation/4.jpg";
+
+import image6 from "../../public/img/photos/IntroAnimation/6.jpg";
+import image7 from "../../public/img/photos/IntroAnimation/7.jpg";
+import image8 from "../../public/img/photos/IntroAnimation/8.jpg";
+import image9 from "../../public/img/photos/IntroAnimation/9.jpg";
+
+import image10 from "../../public/img/photos/IntroAnimation/10.jpg";
+import image11 from "../../public/img/photos/IntroAnimation/11.jpg";
 
 const IntroAnimation = (props) => {
   useEffect(() => {
@@ -31,6 +45,7 @@ const IntroAnimation = (props) => {
 
           wrapper.classList.add("introWrapperReveal");
           images.forEach((element) => {
+            element.classList.add("introReveal");
             element.classList.add("introImgHeightTransition");
           });
 
@@ -76,24 +91,37 @@ const IntroAnimation = (props) => {
     <div className={styles.IntroAnimation}>
       <div className={styles.ImagesWrapper}>
         <div className={`${styles.imageContainerColumn}`}>
-          <img src="https://fastly.picsum.photos/id/914/800/800.jpg?hmac=1N4XLmGKjcqFzGHNGTMF-tlyzXNJlBLW3gWDVKW0hio" />
-          <img src="https://fastly.picsum.photos/id/672/800/800.jpg?hmac=HCPlXWGg3IUoTvf08Y4NurWS5OJ7vqF2Vjt1qdBFJj4" />
-          <img src="https://fastly.picsum.photos/id/204/800/800.jpg?hmac=Ukg8ME66xbF3h87FWIWxtX_5VNn61DnubU4dsCpJNUE" />
-          {/* <img src="https://fastly.picsum.photos/id/1065/800/800.jpg?hmac=QmaUIMK67Rv2weK-p9ycob57GTonEfDzlqTp4VKhaKY" /> */}
+          <Image
+            priority={true}
+            width={300}
+            height={300}
+            alt="test"
+            src={image1.src}
+          />
+          <Image priority={true} width={300} height={300} src={image2.src} />
+          <Image priority={true} width={300} height={300} src={image3.src} />
+          <Image priority={true} width={300} height={300} src={image10.src} />
+          {/* <Image priority={true} width={300} height={300} src="https://fastly.picsum.photos/id/1065/800/800.jpg?hmac=QmaUIMK67Rv2weK-p9ycob57GTonEfDzlqTp4VKhaKY" /> */}
         </div>
 
         <div className={styles.imageContainerColumn}>
-          <img src="https://fastly.picsum.photos/id/586/800/800.jpg?hmac=3PdEnAY5jO71UQs1ACJ6W4AXDM30ebKJTmNuSXeOmy8" />
-          <img src="img/opening-bg.webp" />
-          <img src="https://fastly.picsum.photos/id/383/800/800.jpg?hmac=_jdghuIv75hNdxM8Yn5uS-Qe2FBjwz4i-usLRwayJgQ" />
-          {/* <img src="https://fastly.picsum.photos/id/17/800/800.jpg?hmac=aulLt7OcWQv76ndg-tcBeDyhGo6YuPq5WGXgV5BqF2A" /> */}
+          <Image priority={true} width={300} height={300} src={image4.src} />
+          <Image
+            priority={true}
+            width={1500}
+            height={1500}
+            src={openingBG.src}
+          />
+          <Image priority={true} width={300} height={300} src={image6.src} />
+          {/* <Image priority={true} width={300} height={300} src="https://fastly.picsum.photos/id/17/800/800.jpg?hmac=aulLt7OcWQv76ndg-tcBeDyhGo6YuPq5WGXgV5BqF2A" /> */}
         </div>
 
         <div className={styles.imageContainerColumn}>
-          <img src="https://fastly.picsum.photos/id/204/800/800.jpg?hmac=Ukg8ME66xbF3h87FWIWxtX_5VNn61DnubU4dsCpJNUE" />
-          <img src="https://fastly.picsum.photos/id/1065/800/800.jpg?hmac=QmaUIMK67Rv2weK-p9ycob57GTonEfDzlqTp4VKhaKY" />
-          <img src="https://fastly.picsum.photos/id/914/800/800.jpg?hmac=1N4XLmGKjcqFzGHNGTMF-tlyzXNJlBLW3gWDVKW0hio" />
-          {/* <img src="https://fastly.picsum.photos/id/672/800/800.jpg?hmac=HCPlXWGg3IUoTvf08Y4NurWS5OJ7vqF2Vjt1qdBFJj4" /> */}
+          <Image priority={true} width={300} height={300} src={image7.src} />
+          <Image priority={true} width={300} height={300} src={image8.src} />
+          <Image priority={true} width={300} height={300} src={image9.src} />
+          <Image priority={true} width={300} height={300} src={image11.src} />
+          {/* <Image priority={true} width={300} height={300} src="https://fastly.picsum.photos/id/672/800/800.jpg?hmac=HCPlXWGg3IUoTvf08Y4NurWS5OJ7vqF2Vjt1qdBFJj4" /> */}
         </div>
       </div>
     </div>

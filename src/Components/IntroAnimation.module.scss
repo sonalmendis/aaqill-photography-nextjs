@@ -25,7 +25,7 @@ display: flex;
 }
 .ImagesWrapper{
   
- 
+    align-items: center;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr;
@@ -40,24 +40,44 @@ display: flex;
 .imageContainerColumn{
  
     opacity: 1;    
-    margin-top: 100vh;
+    margin-top: 350%;
     transition: all 3s;
 position:relative;
 display: grid;
 grid-template-columns: 1fr;
 grid-template-rows: repeat(3, 1fr);
 grid-column-gap: 0px;
-grid-row-gap: 0px;
+grid-row-gap: 5em;
 justify-content: space-between;
 align-items: center;
+
 
     img{
         width: 100vw;
         height: 100vh;
         object-fit: cover;
-        transition:all 3s;
-        transition-delay:3s;
+        margin-top:0;
+        transition:height 3s, margin-top 5s ease;
+        transition-delay:3s, 0s;
+        transition-property: height, margin-top;
+        
+        &:not(:first-child){
+            margin-top: 8em;
+        }
+        &:nth-child(3){
+            margin-top: 20em;
+        }
     }
+
+    &:nth-child(odd){
+        grid-template-rows: repeat(4, 1fr);
+        // padding-top:20em;
+            img{
+                // display:none;
+            
+            }
+        }
+        
 }
 
 }
