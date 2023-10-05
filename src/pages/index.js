@@ -7,10 +7,13 @@ import { useMediaQuery } from "react-responsive"; // A must for detecting respon
 import { useParallax } from "react-scroll-parallax";
 import styled from "styled-components";
 import Image from "next/image";
+
+//Styles
 import BlackSectionStyles from "../Components/BlackSection.module.scss";
 import DividerStyles from "../Components/ImageDivider.module.scss";
 
 // Components
+import IntroAnimation from "@/Components/IntroAnimation";
 import ScrollDownArrow from "../Components/ScrollDownArrow";
 import ColourSquare from "@/Components/ColourSqare";
 import ColourSquareContainer from "@/Components/ColourSqareContainer";
@@ -119,11 +122,47 @@ export default function Home(props) {
 
   useEffect(() => {
     setisDesktop(desktop);
-    console.log(portrait);
+
+    // querySelectorAll is used here instead of useRef because useRef doesn't work easily with multiple elements of the same class
+    const hiddenElementsRef = document.querySelectorAll(".hidden");
+
+    // Create an IntersectionObserver to observe the hidden elements
+    const hiddenElementsObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // If the element is intersecting the viewport, show it
+          if (entry.target.closest(".hidden-parent")) {
+            // If the element has a parent with the class "hidden-parent", show the parent element
+            /* The .hidden-parent class is an invisible div that acts as an offset marker so that 
+              the element doesn't appear until it's scrolled into view + the offset */
+            entry.target.closest(".hidden-parent").classList.add("show");
+          } else {
+            // Otherwise, show the element itself
+            entry.target.classList.add("show");
+          }
+
+          // Stop observing the element once its been shown
+          hiddenElementsObserver.unobserve(entry.target);
+        } else {
+          // If the element is not intersecting the viewport, make sure it doesn't have the "show" class (note this should be defualt but this is just a precaution)
+          entry.target.classList.remove("show");
+        }
+      });
+    });
+
+    // Observe all hidden elements
+    hiddenElementsRef.forEach((element) => {
+      hiddenElementsObserver.observe(element);
+    });
+
+    return () => {
+      hiddenElementsObserver.disconnect();
+    };
   }, [desktop]);
 
   return (
     <>
+      <IntroAnimation></IntroAnimation>
       <div className={homeStyles.HomeWrapper}>
         <div className={homeStyles.OpeningSectionWrapper}>
           <Image
@@ -287,7 +326,7 @@ export default function Home(props) {
 
         {/* BLACK SECTION */}
 
-        <BlackSection>
+        <BlackSection className={BlackSectionStyles.BlackSectionWrapper}>
           <div
             className={`${BlackSectionStyles["first-section"]} outer-grid desktop-inner-grid tablet-inner-grid vertical-padding-large`}
           >
@@ -304,11 +343,19 @@ export default function Home(props) {
                 ref={blackSectionParallax.ref}
               >
                 <div className={`${BlackSectionStyles["quote-container"]}`}>
-                  <Image src={quoteMark} alt="Quote mark" />
-                  <p className={`${BlackSectionStyles.quote}`}>
-                    "In time we will tell our stories to the world about our
-                    daily living and small joys"
-                  </p>
+                  <Image src={quoteMark} alt="Quote mark" className="hidden" />
+                  <div className={`${BlackSectionStyles.quote}`}>
+                    <div className={`lineContainer`}>
+                      <span className={`invisibleText`}>
+                        "In time we will tell our stories to the world about our
+                        daily living and small joys"
+                      </span>
+                      <span className={`hiddenSlideUp `}>
+                        "In time we will tell our stories to the world about our
+                        daily living and small joys"
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -333,14 +380,44 @@ export default function Home(props) {
                 <div
                   className={`${BlackSectionStyles["quote-container"]}  ${BlackSectionStyles["second"]} `}
                 >
-                  <Image src={quoteMark} alt="Quote mark" />
-                  <p className={`${BlackSectionStyles.quote}`}>
-                    Amidst the bustle of life, civilization thrives, <br />
-                    A tapestry woven with humanity's lives,
-                    <br />
-                    From towering skyscrapers to humble abodes,
-                    <br />A melting pot of cultures and stories untold.
-                  </p>
+                  <Image src={quoteMark} alt="Quote mark" className="hidden" />
+                  <div className={`${BlackSectionStyles.quote}`}>
+                    <div className={`lineContainer`}>
+                      <span className={`invisibleText`}>
+                        Amidst the bustle of life, civilization thrives,
+                      </span>
+                      <span className={`hiddenSlideUp `}>
+                        Amidst the bustle of life, civilization thrives,
+                      </span>
+                    </div>
+                    <br></br>
+                    <div className={`lineContainer`}>
+                      <span className={`invisibleText`}>
+                        A tapestry woven with humanity's lives,
+                      </span>
+                      <span className={`delayMini hiddenSlideUp `}>
+                        A tapestry woven with humanity's lives,
+                      </span>
+                    </div>
+                    <br></br>
+                    <div className={`lineContainer`}>
+                      <span className={`invisibleText`}>
+                        From towering skyscrapers to humble abodes,
+                      </span>
+                      <span className={`delay hiddenSlideUp `}>
+                        From towering skyscrapers to humble abodes,
+                      </span>
+                    </div>
+                    <br></br>
+                    <div className={`lineContainer`}>
+                      <span className={`invisibleText`}>
+                        A melting pot of cultures and stories untold.
+                      </span>
+                      <span className={`delay2 hiddenSlideUp `}>
+                        A melting pot of cultures and stories untold.
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

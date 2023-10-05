@@ -1,0 +1,45 @@
+@use "../styles/GlobalVariables.module.scss" as gvars;
+
+.IntroAnimation{
+position: relative;
+top:0;
+left:0;
+width:100vw;
+height:100vh;
+background-color: black;
+z-index: 999999;
+overflow: hidden;
+
+.ImagesWrapper{
+    overflow: hidden;
+    height:100%;
+    width:100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 1em;
+    grid-row-gap: 0px;
+    
+}
+
+.imageContainerColumn{
+ 
+    opacity: 1;    
+    margin-top: 100vh;
+    transition: all 3s;
+position:relative;
+ 
+
+    img{
+        width:100%;
+        &:nth-child(2){
+            margin-top: 10em;
+            transition: all 10s;
+            transition-delay:2s;
+            margin-top: 0;
+        }
+    }
+}
+
+}
+

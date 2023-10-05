@@ -1,0 +1,11 @@
+@use "../styles/GlobalVariables.module.scss" as gvars;
+
+.PhotoWithCaption{
+    margin-bottom: 3em;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+    img {
+      width: 100%;height: auto;
+    }
+}
