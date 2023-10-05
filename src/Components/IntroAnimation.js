@@ -110,7 +110,7 @@ const IntroAnimation = (props) => {
             priority={true}
             width={1500}
             height={1500}
-            src={openingBG.src}
+            src={openingImageLarge.src}
           />
           <Image priority={true} width={300} height={300} src={image6.src} />
           {/* <Image priority={true} width={300} height={300} src="https://fastly.picsum.photos/id/17/800/800.jpg?hmac=aulLt7OcWQv76ndg-tcBeDyhGo6YuPq5WGXgV5BqF2A" /> */}
