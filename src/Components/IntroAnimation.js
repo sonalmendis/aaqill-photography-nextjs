@@ -19,7 +19,7 @@ import image11 from "../../public/img/photos/IntroAnimation/11.jpg";
 
 const IntroAnimation = (props) => {
   useEffect(() => {
-    // querySelectorAll is used here instead of useRef because useRef doesn't work easily with multiple elements of the same class
+    // querySelectorAll is used here instead of useRef because useRef doesn't work easily with multiple elements of the same classs
 
     const hiddenElementsRef = document.querySelectorAll(
       `.${styles.IntroAnimation}`
