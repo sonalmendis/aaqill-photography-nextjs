@@ -4,25 +4,25 @@ import Image from "next/image";
 
 import openingImageLarge from "../../public/img/opening-image-large.webp";
 import openingBG from "../../public/img/opening-bg.webp";
-import image1 from "../../public/img/photos/IntroAnimation/1.jpg";
-import image2 from "../../public/img/photos/IntroAnimation/2.jpg";
-import image3 from "../../public/img/photos/IntroAnimation/3.jpg";
-import image4 from "../../public/img/photos/IntroAnimation/4.jpg";
+import image1 from "../../public/img/photos/introAnimation/1.jpg";
+import image2 from "../../public/img/photos/introAnimation/2.jpg";
+import image3 from "../../public/img/photos/introAnimation/3.jpg";
+import image4 from "../../public/img/photos/introAnimation/4.jpg";
 
-import image6 from "../../public/img/photos/IntroAnimation/6.jpg";
-import image7 from "../../public/img/photos/IntroAnimation/7.jpg";
-import image8 from "../../public/img/photos/IntroAnimation/8.jpg";
-import image9 from "../../public/img/photos/IntroAnimation/9.jpg";
+import image6 from "../../public/img/photos/introAnimation/6.jpg";
+import image7 from "../../public/img/photos/introAnimation/7.jpg";
+import image8 from "../../public/img/photos/introAnimation/8.jpg";
+import image9 from "../../public/img/photos/introAnimation/9.jpg";
 
-import image10 from "../../public/img/photos/IntroAnimation/10.jpg";
-import image11 from "../../public/img/photos/IntroAnimation/11.jpg";
+import image10 from "../../public/img/photos/introAnimation/10.jpg";
+import image11 from "../../public/img/photos/introAnimation/11.jpg";
 
 const IntroAnimation = (props) => {
   useEffect(() => {
     // querySelectorAll is used here instead of useRef because useRef doesn't work easily with multiple elements of the same classs
 
     const hiddenElementsRef = document.querySelectorAll(
-      `.${styles.IntroAnimation}`
+      `.${styles.introAnimation}`
     );
     const wrapper = document.querySelector(`.${styles.ImagesWrapper}`);
     const imageContainerColumnRef = document.querySelectorAll(
@@ -88,7 +88,7 @@ const IntroAnimation = (props) => {
   }, []);
 
   return (
-    <div className={styles.IntroAnimation}>
+    <div className={styles.introAnimation}>
       <div className={styles.ImagesWrapper}>
         <div className={`${styles.imageContainerColumn}`}>
           <Image
