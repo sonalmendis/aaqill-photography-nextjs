@@ -163,7 +163,7 @@ export default function Home(props) {
   return (
     <>
       <IntroAnimation></IntroAnimation>
-      <div className={homeStyles.HomeWrapper}>
+      <div className={`${homeStyles.HomeWrapper} homeWrapper`}>
         <div className={homeStyles.OpeningSectionWrapper}>
           <Image
             className={homeStyles.background}
@@ -176,7 +176,7 @@ export default function Home(props) {
               className={`${homeStyles["desktop-background-container"]} desktop-inner-grid`}
             >
               <Image
-                className={homeStyles.mainOpeningImage}
+                className={`${homeStyles.mainOpeningImage} mainOpeningImage`}
                 src={openingImageLarge}
                 alt="Friends"
                 priority
@@ -185,7 +185,7 @@ export default function Home(props) {
 
             <div ref={logoParallax.ref}>
               <Image
-                className={homeStyles.logo}
+                className={`${homeStyles.logo} openingLogo`}
                 priority
                 src="../../img/opening-graphic.svg"
                 alt="Logo"

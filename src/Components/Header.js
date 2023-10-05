@@ -57,7 +57,7 @@ const Header = () => {
   };
 
   return (
-    <div className={styles.HeaderWrapper}>
+    <div className={`${styles.HeaderWrapper} header`}>
       <div
         className={`${styles["top-container"]} ${
           isMenuOpen ? styles.open : ""

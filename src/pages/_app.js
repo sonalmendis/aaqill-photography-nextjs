@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react";
+
 import "@/styles/GlobalStyles.scss";
 import Head from "next/head";
 import { Abhaya_Libre } from "next/font/google";
@@ -30,6 +31,7 @@ export default function App({ Component, pageProps }) {
   // useEffect(() => {
   //   setScrollElement(ref.current);
   // }, [ref]);
+
   return (
     <>
       <Head>

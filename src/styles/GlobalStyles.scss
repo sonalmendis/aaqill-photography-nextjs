@@ -37,6 +37,7 @@ html {
 	-webkit-text-size-adjust: 100%; /* 2. Prevent adjustments of font size after orientation changes in iOS. */
 	-moz-tab-size: 4; /* 3. Use a more readable tab size (opinionated). */
 	tab-size: 4; /* 3 */
+    overflow-y:scroll;
 }
 
 /*
@@ -46,6 +47,7 @@ Sections
 
 body {
 	margin: 0; /* Remove the margin in all browsers. */
+    overflow-x:hidden;
 }
 
 /*
@@ -613,6 +615,24 @@ MISC
 .introReveal{
     margin-top: 0 !important;
 }
+
+.introBgReveal{
+    opacity:1 !important;
+}
+
+.introImgHeightTransition{
+    // height:33.33333vh !important;
+   
+}
+
+.introWrapperReveal{
+    transform: scale(1) !important;
+}
+
+.basicOpacityReveal{
+    opacity:1 !important;
+}
+
 @media(prefers-reduced-motion){
     .hidden{
         transition:none;
