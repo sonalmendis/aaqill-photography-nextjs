@@ -26,7 +26,10 @@ const AbhayaLibre = Abhaya_Libre({
 // How to import from local:
 const SofiaPro = localFont({
   src: "../../public/Fonts/sofiapro-light-webfont.woff2",
+  weight: "400",
+  subsets: ["latin"],
   formats: ["woff2"],
+
   variable: "--font2",
 });
 
