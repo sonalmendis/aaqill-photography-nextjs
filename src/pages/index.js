@@ -55,9 +55,7 @@ import camelLarge from "../../public/img/photos/camel-large.webp";
 
 // Lazy loaded components
 // import ContactFormMedia from "@/Components/ContactFormMedia";
-const ContactFormMedia = dynamic(() =>
-  import("../Components/ContactFormMedia")
-);
+const ContactFormMedia = dynamic(() => import("@/Components/ContactFormMedia"));
 
 export default function Home(props) {
   const desktop = useMediaQuery({

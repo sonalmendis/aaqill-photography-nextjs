@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "next": "latest",
+    "nextjs-progressbar": "^0.0.16",
     "react": "latest",
     "react-dom": "latest",
     "react-hook-form": "^7.46.2",

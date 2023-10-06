@@ -1,5 +1,6 @@
 import { Html, Head, Main, NextScript } from "next/document";
 import { ParallaxProvider } from "react-scroll-parallax";
+import Loader from "../Components/Loader";
 
 export default function Document() {
   return (

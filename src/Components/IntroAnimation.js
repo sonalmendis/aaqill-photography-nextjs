@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./IntroAnimation.module.scss";
 import Image from "next/image";
 
@@ -18,6 +18,12 @@ import image10 from "../../public/img/photos/introAnimation/10.jpg";
 import image11 from "../../public/img/photos/introAnimation/11.jpg";
 
 const IntroAnimation = (props) => {
+  const [numberOfImagesLoaded, setNumberOfImagesLoaded] = useState(0);
+
+  const increaseNumberOfImagesLoaded = () => {
+    setNumberOfImagesLoaded((prev) => prev + 1);
+  };
+
   useEffect(() => {
     // querySelectorAll is used here instead of useRef because useRef doesn't work easily with multiple elements of the same classs
 
@@ -34,47 +40,49 @@ const IntroAnimation = (props) => {
     );
 
     const introBg = document.querySelector(`.${styles.IntroBg}`);
-    console.log(hiddenElementsRef);
+
     // Create an IntersectionObserver to observe the hidden elements
     const hiddenElementsObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          imageContainerColumnRef.forEach((element) => {
-            element.classList.add("introReveal");
-          });
+      if (numberOfImagesLoaded === 11) {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            imageContainerColumnRef.forEach((element) => {
+              element.classList.add("introReveal");
+            });
 
-          wrapper.classList.add("introWrapperReveal");
-          images.forEach((element) => {
-            element.classList.add("introReveal");
-            element.classList.add("introImgHeightTransition");
-          });
+            wrapper.classList.add("introWrapperReveal");
+            images.forEach((element) => {
+              element.classList.add("introReveal");
+              element.classList.add("introImgHeightTransition");
+            });
 
-          //   introBg.classList.add("introBgReveal");
-          // Stop observing the element once its been shown
-          setTimeout(() => {
-            entry.target.style.display = "none";
-            // document.querySelector("html").style.overflowY = "scroll";
-            document.querySelector(".homeWrapper").style.display = "block";
-
+            //   introBg.classList.add("introBgReveal");
+            // Stop observing the element once its been shown
             setTimeout(() => {
-              document
-                .querySelector(".openingLogo")
-                .classList.add("basicOpacityReveal");
+              entry.target.style.display = "none";
+              // document.querySelector("html").style.overflowY = "scroll";
+              document.querySelector(".homeWrapper").style.display = "block";
 
-              document
-                .querySelector(".mainOpeningImage")
-                .classList.add("basicOpacityReveal");
+              setTimeout(() => {
+                document
+                  .querySelector(".openingLogo")
+                  .classList.add("basicOpacityReveal");
 
-              document
-                .querySelector(".header")
-                .classList.add("basicOpacityReveal");
-            }, 100);
-          }, 6000);
+                document
+                  .querySelector(".mainOpeningImage")
+                  .classList.add("basicOpacityReveal");
 
-          hiddenElementsObserver.unobserve(entry.target);
-        } else {
-        }
-      });
+                document
+                  .querySelector(".header")
+                  .classList.add("basicOpacityReveal");
+              }, 100);
+            }, 6000);
+
+            hiddenElementsObserver.unobserve(entry.target);
+          } else {
+          }
+        });
+      }
     });
 
     // Observe all hidden elements
@@ -85,10 +93,11 @@ const IntroAnimation = (props) => {
     return () => {
       hiddenElementsObserver.disconnect();
     };
-  }, []);
+  }, [numberOfImagesLoaded]);
 
   return (
     <div className={styles.IntroAnimation}>
+      {numberOfImagesLoaded}
       <div className={styles.ImagesWrapper}>
         <div className={`${styles.imageContainerColumn}`}>
           <Image
@@ -97,6 +106,9 @@ const IntroAnimation = (props) => {
             height={300}
             alt="test"
             src={image1.src}
+            onLoadingComplete={() => {
+              increaseNumberOfImagesLoaded();
+            }}
           />
           <Image
             alt="test"
@@ -104,6 +116,9 @@ const IntroAnimation = (props) => {
             width={300}
             height={300}
             src={image2.src}
+            onLoadingComplete={() => {
+              increaseNumberOfImagesLoaded();
+            }}
           />
           <Image
             alt="test"
@@ -111,6 +126,9 @@ const IntroAnimation = (props) => {
             width={300}
             height={300}
             src={image3.src}
+            onLoadingComplete={() => {
+              increaseNumberOfImagesLoaded();
+            }}
           />
           <Image
             alt="test"
@@ -118,6 +136,9 @@ const IntroAnimation = (props) => {
             width={300}
             height={300}
             src={image10.src}
+            onLoadingComplete={() => {
+              increaseNumberOfImagesLoaded();
+            }}
           />
           {/* <Image alt="test" priority={true} width={300} height={300} src="https://fastly.picsum.photos/id/1065/800/800.jpg?hmac=QmaUIMK67Rv2weK-p9ycob57GTonEfDzlqTp4VKhaKY" /> */}
         </div>
@@ -129,6 +150,9 @@ const IntroAnimation = (props) => {
             width={300}
             height={300}
             src={image4.src}
+            onLoadingComplete={() => {
+              increaseNumberOfImagesLoaded();
+            }}
           />
           <Image
             alt="test"
@@ -136,6 +160,9 @@ const IntroAnimation = (props) => {
             width={1500}
             height={1500}
             src={openingBG.src}
+            onLoadingComplete={() => {
+              increaseNumberOfImagesLoaded();
+            }}
           />
           <Image
             alt="test"
@@ -143,6 +170,9 @@ const IntroAnimation = (props) => {
             width={300}
             height={300}
             src={image6.src}
+            onLoadingComplete={() => {
+              increaseNumberOfImagesLoaded();
+            }}
           />
           {/* <Image alt="test" priority={true} width={300} height={300} src="https://fastly.picsum.photos/id/17/800/800.jpg?hmac=aulLt7OcWQv76ndg-tcBeDyhGo6YuPq5WGXgV5BqF2A" /> */}
         </div>
@@ -154,6 +184,9 @@ const IntroAnimation = (props) => {
             width={300}
             height={300}
             src={image7.src}
+            onLoadingComplete={() => {
+              increaseNumberOfImagesLoaded();
+            }}
           />
           <Image
             alt="test"
@@ -161,6 +194,9 @@ const IntroAnimation = (props) => {
             width={300}
             height={300}
             src={image8.src}
+            onLoadingComplete={() => {
+              increaseNumberOfImagesLoaded();
+            }}
           />
           <Image
             alt="test"
@@ -168,6 +204,9 @@ const IntroAnimation = (props) => {
             width={300}
             height={300}
             src={image9.src}
+            onLoadingComplete={() => {
+              increaseNumberOfImagesLoaded();
+            }}
           />
           <Image
             alt="test"
@@ -175,6 +214,9 @@ const IntroAnimation = (props) => {
             width={300}
             height={300}
             src={image11.src}
+            onLoadingComplete={() => {
+              increaseNumberOfImagesLoaded();
+            }}
           />
           {/* <Image alt="test" priority={true} width={300} height={300} src="https://fastly.picsum.photos/id/672/800/800.jpg?hmac=HCPlXWGg3IUoTvf08Y4NurWS5OJ7vqF2Vjt1qdBFJj4" /> */}
         </div>
