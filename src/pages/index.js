@@ -465,7 +465,7 @@ export default function Home(props) {
         {/* CONTACT SECTION */}
         <div>
           <div className="outer-grid desktop-inner-grid">
-            <ContactFormMedia className="vertical-padding-large"></ContactFormMedia>
+            {/* <ContactFormMedia className="vertical-padding-large"></ContactFormMedia> */}
           </div>
         </div>
         {/* HOME WARPPER END */}
