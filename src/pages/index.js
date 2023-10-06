@@ -1,83 +1,60 @@
-import { useEffect, useState } from "react";
 import * as GlobalVariables from "@/styles/GlobalVariables";
-import globalVars from "@/styles/GlobalVariables.module.scss";
-import homeStyles from "../styles/index.module.scss";
-import dynamic from "next/dynamic";
+import homeStyles from "@/styles/index.module.scss";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive"; // A must for detecting responsivity
 import { useParallax } from "react-scroll-parallax";
-import styled from "styled-components";
-import Image from "next/image";
+import dynamic from "next/dynamic";
 
 //Styles
-import BlackSectionStyles from "../Components/BlackSection.module.scss";
-import DividerStyles from "../Components/ImageDivider.module.scss";
+import BlackSectionStyles from "@/Components/BlackSection.module.scss";
+import DividerStyles from "@/Components/ImageDivider.module.scss";
 
 // Components
 import IntroAnimation from "@/Components/IntroAnimation";
-import ScrollDownArrow from "../Components/ScrollDownArrow";
+import BlackSection from "@/Components/BlackSection";
 import ColourSquare from "@/Components/ColourSqare";
 import ColourSquareContainer from "@/Components/ColourSqareContainer";
-import BlackSection from "@/Components/BlackSection";
 import ImageDivider from "@/Components/ImageDivider";
+import ScrollDownArrow from "@/Components/ScrollDownArrow";
 import Spacer from "@/Components/Spacer";
 
 // Images
 import quoteMark from "../../public/img/quote-mark.svg";
-import quoteMarkBlack from "../../public/img/quote-mark-black.svg";
 
 import background from "../../public/img/opening-bg.webp";
 import openingImageLarge from "../../public/img/opening-image-large.webp";
 
 import shrineLarge from "../../public/img/photos/shrine-high-ppi.webp";
-import shrine from "../../public/img/photos/shrine-low-ppi.webp";
 
 import barberLarge from "../../public/img/photos/barber-large.webp";
-import barber from "../../public/img/photos/barber-small.webp";
 
 import templeLarge from "../../public/img/photos/temple-large.webp";
-import temple from "../../public/img/photos/temple-small.webp";
 
 import girlLarge from "../../public/img/photos/girl-large.webp";
-import girlMedium from "../../public/img/photos/girl-medium.webp";
-import girl from "../../public/img/photos/girl-small.webp";
-import girlPort from "../../public/img/photos/girl-port.webp";
 
 import landscapeLarge from "../../public/img/photos/nature-landscape-large.webp";
-import landscapeMedium from "../../public/img/photos/nature-landscape-medium.webp";
-import landscape from "../../public/img/photos/nature-landscape-small.webp";
-import full2port from "../../public/img/photos/full-2-port.webp";
 
 import sageLarge from "../../public/img/photos/sage-large.webp";
-import sage from "../../public/img/photos/sage-small.webp";
 
 import temple2Large from "../../public/img/photos/temple2-large.webp";
-import temple2 from "../../public/img/photos/temple2-small.webp";
 
-import potMakerLarge from "../../public/img/photos/pot-maker-large.webp";
 import potMakerMedium from "../../public/img/photos/pot-maker-medium.webp";
-import potMaker from "../../public/img/photos/pot-maker-small.webp";
 
-import rugsLarge from "../../public/img/photos/rugs-large.webp";
 import rugsMedium from "../../public/img/photos/rugs-medium.webp";
-import rugs from "../../public/img/photos/rugs-small.webp";
 
-import civLarge from "../../public/img/photos/civ-large.webp";
 import civ from "../../public/img/photos/civ-small.webp";
 
-import potMaker2Large from "../../public/img/photos/potmaker2-large.webp";
 import potMaker2 from "../../public/img/photos/potmaker2-small.webp";
 
-import kidLarge from "../../public/img/photos/kid-large.webp";
 import kid from "../../public/img/photos/kid-small.webp";
 
-import loversPerchLarge from "../../public/img/photos/loversperch-large.webp";
 import loversPerch from "../../public/img/photos/loversperch-small.webp";
 
 import camelLarge from "../../public/img/photos/camel-large.webp";
-import camelMedium from "../../public/img/photos/camel-medium.webp";
-import camel from "../../public/img/photos/camel-small.webp";
 
 // Lazy loaded components
+// import ContactFormMedia from "@/Components/ContactFormMedia";
 const ContactFormMedia = dynamic(() =>
   import("../Components/ContactFormMedia")
 );

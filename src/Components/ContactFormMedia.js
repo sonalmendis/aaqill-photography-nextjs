@@ -188,13 +188,15 @@ REMEMBER TO SET YOUR ACCES KEY
           <video
             autoPlay
             muted
-            poster={zoom}
+            poster={zoom.src}
             loop
             playsInline
             className={`${styles["media-container"]} ${styles["zoom-video"]} ${styles["lazy-video"]}`}
           >
             <source
-              src="https://strapi-images.sgp1.digitaloceanspaces.com/cc57e51135e86adaf77cfadee1aaa50f.mp4"
+              src={
+                "https://strapi-images.sgp1.digitaloceanspaces.com/cc57e51135e86adaf77cfadee1aaa50f.mp4"
+              }
               type="video/mp4"
             />
           </video>

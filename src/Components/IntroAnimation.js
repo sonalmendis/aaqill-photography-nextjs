@@ -22,7 +22,7 @@ const IntroAnimation = (props) => {
     // querySelectorAll is used here instead of useRef because useRef doesn't work easily with multiple elements of the same classs
 
     const hiddenElementsRef = document.querySelectorAll(
-      `.${styles.introAnimation}`
+      `.${styles.IntroAnimation}`
     );
     const wrapper = document.querySelector(`.${styles.ImagesWrapper}`);
     const imageContainerColumnRef = document.querySelectorAll(
@@ -88,7 +88,7 @@ const IntroAnimation = (props) => {
   }, []);
 
   return (
-    <div className={styles.introAnimation}>
+    <div className={styles.IntroAnimation}>
       <div className={styles.ImagesWrapper}>
         <div className={`${styles.imageContainerColumn}`}>
           <Image
@@ -98,30 +98,85 @@ const IntroAnimation = (props) => {
             alt="test"
             src={image1.src}
           />
-          <Image priority={true} width={300} height={300} src={image2.src} />
-          <Image priority={true} width={300} height={300} src={image3.src} />
-          <Image priority={true} width={300} height={300} src={image10.src} />
-          {/* <Image priority={true} width={300} height={300} src="https://fastly.picsum.photos/id/1065/800/800.jpg?hmac=QmaUIMK67Rv2weK-p9ycob57GTonEfDzlqTp4VKhaKY" /> */}
+          <Image
+            alt="test"
+            priority={true}
+            width={300}
+            height={300}
+            src={image2.src}
+          />
+          <Image
+            alt="test"
+            priority={true}
+            width={300}
+            height={300}
+            src={image3.src}
+          />
+          <Image
+            alt="test"
+            priority={true}
+            width={300}
+            height={300}
+            src={image10.src}
+          />
+          {/* <Image alt="test" priority={true} width={300} height={300} src="https://fastly.picsum.photos/id/1065/800/800.jpg?hmac=QmaUIMK67Rv2weK-p9ycob57GTonEfDzlqTp4VKhaKY" /> */}
         </div>
 
         <div className={styles.imageContainerColumn}>
-          <Image priority={true} width={300} height={300} src={image4.src} />
           <Image
+            alt="test"
+            priority={true}
+            width={300}
+            height={300}
+            src={image4.src}
+          />
+          <Image
+            alt="test"
             priority={true}
             width={1500}
             height={1500}
-            src={openingImageLarge.src}
+            src={openingBG.src}
           />
-          <Image priority={true} width={300} height={300} src={image6.src} />
-          {/* <Image priority={true} width={300} height={300} src="https://fastly.picsum.photos/id/17/800/800.jpg?hmac=aulLt7OcWQv76ndg-tcBeDyhGo6YuPq5WGXgV5BqF2A" /> */}
+          <Image
+            alt="test"
+            priority={true}
+            width={300}
+            height={300}
+            src={image6.src}
+          />
+          {/* <Image alt="test" priority={true} width={300} height={300} src="https://fastly.picsum.photos/id/17/800/800.jpg?hmac=aulLt7OcWQv76ndg-tcBeDyhGo6YuPq5WGXgV5BqF2A" /> */}
         </div>
 
         <div className={styles.imageContainerColumn}>
-          <Image priority={true} width={300} height={300} src={image7.src} />
-          <Image priority={true} width={300} height={300} src={image8.src} />
-          <Image priority={true} width={300} height={300} src={image9.src} />
-          <Image priority={true} width={300} height={300} src={image11.src} />
-          {/* <Image priority={true} width={300} height={300} src="https://fastly.picsum.photos/id/672/800/800.jpg?hmac=HCPlXWGg3IUoTvf08Y4NurWS5OJ7vqF2Vjt1qdBFJj4" /> */}
+          <Image
+            alt="test"
+            priority={true}
+            width={300}
+            height={300}
+            src={image7.src}
+          />
+          <Image
+            alt="test"
+            priority={true}
+            width={300}
+            height={300}
+            src={image8.src}
+          />
+          <Image
+            alt="test"
+            priority={true}
+            width={300}
+            height={300}
+            src={image9.src}
+          />
+          <Image
+            alt="test"
+            priority={true}
+            width={300}
+            height={300}
+            src={image11.src}
+          />
+          {/* <Image alt="test" priority={true} width={300} height={300} src="https://fastly.picsum.photos/id/672/800/800.jpg?hmac=HCPlXWGg3IUoTvf08Y4NurWS5OJ7vqF2Vjt1qdBFJj4" /> */}
         </div>
       </div>
     </div>
