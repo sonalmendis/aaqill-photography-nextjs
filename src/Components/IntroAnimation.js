@@ -48,59 +48,50 @@ const IntroAnimation = (props) => {
       `.${styles.mainBackgroundImage}`
     );
     // Create an IntersectionObserver to observe the hidden elements
-    const hiddenElementsObserver = new IntersectionObserver((entries) => {
-      if (numberOfImagesLoaded === 11) {
-        setImagesLoaded(true);
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            imageContainerColumnRef.forEach((element) => {
-              element.classList.add("introReveal");
-            });
 
-            wrapper.classList.add("introWrapperReveal");
-            images.forEach((element) => {
-              element.classList.add("introReveal");
-              element.classList.add("introImgHeightTransition");
-            });
+    if (numberOfImagesLoaded === 11) {
+      setImagesLoaded(true);
 
-            if (desktop) {
-              mainBackgroundImage.classList.add("introMainBgBlurTransition");
-            }
+      imageContainerColumnRef.forEach((element) => {
+        element.classList.add("introReveal");
+      });
 
-            // Stop observing the element once its been shown
-            setTimeout(() => {
-              // entry.target.style.display = "none";
-              // document.querySelector("html").style.overflowY = "scroll";
-              // mainBackgroundImage.classList.add("introMainBgOpacityTransition");
-              document.querySelector(".homeWrapper").style.display = "block";
-              document.querySelector("html").style.overflowY = "scroll"; // This is for mobile, this method isn't used on desktop because the scrollbar becoming visible after being invisible affects the doucment width
-              setTimeout(() => {
-                document.querySelector(".homeWrapper").style.opacity = "1";
-                document
-                  .querySelector(".openingLogo")
-                  .classList.add("basicOpacityReveal");
+      wrapper.classList.add("introWrapperReveal");
+      images.forEach((element) => {
+        element.classList.add("introReveal");
+        element.classList.add("introImgHeightTransition");
+      });
 
-                document
-                  .querySelector(".mainOpeningImage")
-                  .classList.add("basicOpacityReveal");
-
-                document
-                  .querySelector(".header")
-                  .classList.add("basicOpacityReveal");
-                setTimeout(() => {
-                  hiddenElementsRef.forEach((element) => {
-                    element.style.display = "none";
-                  });
-                }, 2000);
-              }, 100);
-            }, 2500);
-
-            hiddenElementsObserver.unobserve(entry.target);
-          } else {
-          }
-        });
+      if (desktop) {
+        mainBackgroundImage.classList.add("introMainBgBlurTransition");
       }
-    });
+
+      // Stop observing the element once its been shown
+      setTimeout(() => {
+        // entry.target.style.display = "none";
+        // document.querySelector("html").style.overflowY = "scroll";
+        // mainBackgroundImage.classList.add("introMainBgOpacityTransition");
+        document.querySelector(".homeWrapper").style.display = "block";
+        document.querySelector("html").style.overflowY = "scroll"; // This is for mobile, this method isn't used on desktop because the scrollbar becoming visible after being invisible affects the doucment width
+        setTimeout(() => {
+          document.querySelector(".homeWrapper").style.opacity = "1";
+          document
+            .querySelector(".openingLogo")
+            .classList.add("basicOpacityReveal");
+
+          document
+            .querySelector(".mainOpeningImage")
+            .classList.add("basicOpacityReveal");
+
+          document.querySelector(".header").classList.add("basicOpacityReveal");
+          setTimeout(() => {
+            hiddenElementsRef.forEach((element) => {
+              element.style.display = "none";
+            });
+          }, 2000);
+        }, 100);
+      }, 2500);
+    }
 
     // Remove the intro animation after 10 seconds if the images still haven't loaded
     // This acts as a failsafe in case the intro animation doesn't trigger for whatever reason
@@ -133,13 +124,9 @@ const IntroAnimation = (props) => {
       }
     }, 10000);
     // Observe all hidden elements
-    hiddenElementsRef.forEach((element) => {
-      hiddenElementsObserver.observe(element);
-    });
 
     return () => {
       clearTimeout(timeoutFunction);
-      hiddenElementsObserver.disconnect();
     };
   }, [numberOfImagesLoaded]);
 
@@ -153,7 +140,7 @@ const IntroAnimation = (props) => {
             height={300}
             alt="test"
             src={image1.src}
-            onLoad={() => {
+            onLoadingComplete={() => {
               increaseNumberOfImagesLoaded();
             }}
           />
@@ -163,7 +150,7 @@ const IntroAnimation = (props) => {
             width={300}
             height={300}
             src={image2.src}
-            onLoad={() => {
+            onLoadingComplete={() => {
               increaseNumberOfImagesLoaded();
             }}
           />
@@ -173,7 +160,7 @@ const IntroAnimation = (props) => {
             width={300}
             height={300}
             src={image3.src}
-            onLoad={() => {
+            onLoadingComplete={() => {
               increaseNumberOfImagesLoaded();
             }}
           />
@@ -184,7 +171,7 @@ const IntroAnimation = (props) => {
             width={300}
             height={300}
             src={image10.src}
-            onLoad={() => {
+            onLoadingComplete={() => {
               increaseNumberOfImagesLoaded();
             }}
           />
@@ -199,7 +186,7 @@ const IntroAnimation = (props) => {
             width={300}
             height={300}
             src={image4.src}
-            onLoad={() => {
+            onLoadingComplete={() => {
               increaseNumberOfImagesLoaded();
             }}
           />
@@ -209,7 +196,7 @@ const IntroAnimation = (props) => {
               priority={true}
               className={styles.mainBackgroundImage}
               src={openingImageLarge}
-              onLoad={() => {
+              onLoadingComplete={() => {
                 increaseNumberOfImagesLoaded();
               }}
             />
@@ -221,7 +208,7 @@ const IntroAnimation = (props) => {
             width={300}
             height={300}
             src={image6.src}
-            onLoad={() => {
+            onLoadingComplete={() => {
               increaseNumberOfImagesLoaded();
             }}
           />
@@ -235,7 +222,7 @@ const IntroAnimation = (props) => {
             width={300}
             height={300}
             src={image7.src}
-            onLoad={() => {
+            onLoadingComplete={() => {
               increaseNumberOfImagesLoaded();
             }}
           />
@@ -245,7 +232,7 @@ const IntroAnimation = (props) => {
             width={300}
             height={300}
             src={image8.src}
-            onLoad={() => {
+            onLoadingComplete={() => {
               increaseNumberOfImagesLoaded();
             }}
           />
@@ -255,7 +242,7 @@ const IntroAnimation = (props) => {
             width={300}
             height={300}
             src={image9.src}
-            onLoad={() => {
+            onLoadingComplete={() => {
               increaseNumberOfImagesLoaded();
             }}
           />
@@ -265,7 +252,7 @@ const IntroAnimation = (props) => {
             width={300}
             height={300}
             src={image11.src}
-            onLoad={() => {
+            onLoadingComplete={() => {
               increaseNumberOfImagesLoaded();
             }}
           />
