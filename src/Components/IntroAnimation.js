@@ -73,7 +73,7 @@ const IntroAnimation = (props) => {
               // document.querySelector("html").style.overflowY = "scroll";
               // mainBackgroundImage.classList.add("introMainBgOpacityTransition");
               document.querySelector(".homeWrapper").style.display = "block";
-
+              document.querySelector("html").style.overflowY = "scroll"; // This is for mobile, this method isn't used on desktop because the scrollbar becoming visible after being invisible affects the doucment width
               setTimeout(() => {
                 document.querySelector(".homeWrapper").style.opacity = "1";
                 document
