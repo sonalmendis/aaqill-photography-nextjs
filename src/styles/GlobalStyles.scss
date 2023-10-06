@@ -616,8 +616,11 @@ MISC
     margin-top: 0 !important;
 }
 
-.introBgReveal{
-    opacity:1 !important;
+.introMainBgBlurTransition{
+    filter:blur(0.7em) !important;
+}
+.introMainBgOpacityTransition{
+    opacity:0 !important;
 }
 
 .introImgHeightTransition{

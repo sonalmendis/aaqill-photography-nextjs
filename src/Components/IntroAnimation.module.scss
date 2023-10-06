@@ -5,13 +5,17 @@ position: absolute;
 top:0;
 left:0;
 width:100%;
-height:100vh;
+height:140vh;
 background-color: black;
-z-index: 999999;
+z-index: 99;
 overflow: hidden;
 display: flex;
     justify-content: center;
     align-items: center;
+
+    @include gvars.laptop {
+        height: 100vh;
+    }
 
 .IntroBg{
     position:absolute;
@@ -40,7 +44,7 @@ display: flex;
 .imageContainerColumn{
  
     opacity: 1;    
-    margin-top: 350%;
+    margin-top: 450%;
     transition: all 3s;
 position:relative;
 display: grid;
@@ -54,13 +58,15 @@ align-items: center;
 
     img{
         width: 100vw;
-        height: 100vh;
+        height: 140vh;
         object-fit: cover;
         margin-top:0;
-        transition:height 3s, margin-top 5s ease;
-        transition-delay:3s, 0s;
-        transition-property: height, margin-top;
-        
+        transition:height 3s, margin-top 5s ease, filter 2s, opacity 5s;
+        transition-delay:3s, 0s, 4s, 0s;
+        transition-property: height, margin-top, filter, opacity;
+        @include gvars.laptop {
+            height: 100vh;
+        }
         &:not(:first-child){
             margin-top: 8em;
         }
@@ -68,7 +74,28 @@ align-items: center;
             margin-top: 20em;
         }
     }
+    .maingBGImageContainer{
+        position:relative;
+        overflow:hidden;
+        background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%);
 
+    }
+    .mainBackgroundImage{
+        filter:blur(0);
+        opacity:1;
+   
+    }
+    .gradientContainer{
+        position: absolute;
+   top:0;
+        height:144vh;
+        width:100vw;
+        background: rgb(255,255,255);
+        background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 30%);
+        @include gvars.laptop {
+            height: 100vh;
+        }
+      }
     &:nth-child(odd){
         grid-template-rows: repeat(4, 1fr);
         // padding-top:20em;

@@ -58,6 +58,7 @@ import camelLarge from "../../public/img/photos/camel-large.webp";
 const ContactFormMedia = dynamic(() => import("@/Components/ContactFormMedia"));
 
 export default function Home(props) {
+  const setImagesLoaded = props.setImagesLoaded;
   const desktop = useMediaQuery({
     query: `${GlobalVariables.device.laptop}`,
   });
@@ -137,15 +138,19 @@ export default function Home(props) {
 
   return (
     <>
-      <IntroAnimation></IntroAnimation>
+      <IntroAnimation setImagesLoaded={setImagesLoaded}></IntroAnimation>
       <div className={`${homeStyles.HomeWrapper} homeWrapper`}>
         <div className={homeStyles.OpeningSectionWrapper}>
-          <Image
-            className={homeStyles.background}
-            src={background}
-            alt="Background"
-            priority
-          />
+          <div className={homeStyles.FullScreenContainer}>
+            <Image
+              className={homeStyles.background}
+              src={openingImageLarge}
+              alt="Background"
+              priority
+            />
+            <div className={homeStyles.gradientContainer}></div>
+          </div>
+
           <div className={homeStyles["inner-container"]}>
             <div
               className={`${homeStyles["desktop-background-container"]} desktop-inner-grid`}

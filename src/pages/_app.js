@@ -7,6 +7,7 @@ import localFont from "next/font/local";
 import dynamic from "next/dynamic";
 import Router from "next/router";
 import LoaderImg from "../../public/img/loader.svg";
+import Loader from "@/Components/Loader";
 import Image from "next/image";
 // import { ParallaxProvider } from "react-scroll-parallax";
 import Header from "@/Components/Header";
@@ -40,39 +41,49 @@ export default function App({ Component, pageProps }) {
   //   setScrollElement(ref.current);
   // }, [ref]);
 
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
   useEffect(() => {
+    // if (!imagesLoaded) {
+    //   console.log(imagesLoaded);
+
+    //   document.getElementById("globalLoader").remove();
+    //   document.querySelector(".introAnimationContainer").style.display = "none";
+    //   document.querySelector(".homeWrapper").style.display = "block";
+    //   document
+    //     .querySelector(".openingLogo")
+    //     .classList.add("basicOpacityReveal");
+
+    //   document
+    //     .querySelector(".mainOpeningImage")
+    //     .classList.add("basicOpacityReveal");
+
+    //   document.querySelector(".header").classList.add("basicOpacityReveal");
+    // }
+
     if (typeof window !== "undefined") {
       const loader = document.getElementById("globalLoader");
-      if (loader) loader.remove();
+      if (imagesLoaded) {
+        if (loader) {
+          loader.remove();
+        }
+      }
     }
   });
 
   return (
     <>
-      <NextNProgress
-        transformCSS={(css) => {
-          // css is the default css string. You can modify it and return it or return your own css.
-          return <style>{`background: red`}</style>;
-        }}
-      />
+      <Loader />
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
         <title>Aaqill Photography</title>
       </Head>
-      <div id="globalLoader">
-        <Image
-          priority={true}
-          width={300}
-          height={300}
-          src={LoaderImg.src}
-          alt=""
-        />
-      </div>
+
       <main className={`${SofiaPro.variable} ${AbhayaLibre.variable}`}>
         <ParallaxProvider>
           <Header />
-          <Component {...pageProps} />
+          <Component setImagesLoaded={setImagesLoaded} {...pageProps} />
         </ParallaxProvider>
       </main>
     </>
