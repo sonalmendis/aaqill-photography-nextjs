@@ -93,7 +93,7 @@ const IntroAnimation = (props) => {
                   });
                 }, 2000);
               }, 100);
-            }, 6000);
+            }, 2500);
 
             hiddenElementsObserver.unobserve(entry.target);
           } else {

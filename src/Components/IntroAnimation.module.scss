@@ -17,16 +17,16 @@ display: flex;
         height: 100vh;
     }
 
-.IntroBg{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100vw;
-    height:100vh;
-    opacity:0;
-    transition:all 2s;
-    transition-delay:2s;
-}
+// .IntroBg{
+//     position:absolute;
+//     top:0;
+//     left:0;
+//     width:100vw;
+//     height:100vh;
+//     opacity:0;
+//     transition:all 1s;
+//     transition-delay:2s;
+// }
 .ImagesWrapper{
   
     align-items: center;
@@ -36,8 +36,8 @@ display: flex;
     grid-column-gap: 5em;
     grid-row-gap: 0px;
     transform: scale(0.3);
-    transition:all 3s;
-    transition-delay:3s;
+    transition:all 1s;
+    transition-delay:1.75s;
 
 }
 
@@ -46,7 +46,7 @@ display: flex;
     opacity: 1;    
     margin-top: 1000vh;
 
-    transition: all 3s;
+    transition: all 2s;
 position:relative;
 display: grid;
 grid-template-columns: 1fr;
@@ -64,8 +64,8 @@ align-items: center;
         height: 140vh;
         object-fit: cover;
         margin-top:0;
-        transition:height 3s, margin-top 5s ease, filter 2s, opacity 5s;
-        transition-delay:3s, 0s, 4s, 0s;
+        transition:height 2s, margin-top 2s ease, filter 2s, opacity 5s;
+        transition-delay:1.5s, 0s, 2s, 0s;
         transition-property: height, margin-top, filter, opacity;
         @include gvars.laptop {
             height: 100vh;
