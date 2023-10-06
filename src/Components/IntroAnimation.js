@@ -153,7 +153,7 @@ const IntroAnimation = (props) => {
             height={300}
             alt="test"
             src={image1.src}
-            onLoadingComplete={() => {
+            onLoad={() => {
               increaseNumberOfImagesLoaded();
             }}
           />
@@ -163,7 +163,7 @@ const IntroAnimation = (props) => {
             width={300}
             height={300}
             src={image2.src}
-            onLoadingComplete={() => {
+            onLoad={() => {
               increaseNumberOfImagesLoaded();
             }}
           />
@@ -173,7 +173,7 @@ const IntroAnimation = (props) => {
             width={300}
             height={300}
             src={image3.src}
-            onLoadingComplete={() => {
+            onLoad={() => {
               increaseNumberOfImagesLoaded();
             }}
           />
@@ -184,7 +184,7 @@ const IntroAnimation = (props) => {
             width={300}
             height={300}
             src={image10.src}
-            onLoadingComplete={() => {
+            onLoad={() => {
               increaseNumberOfImagesLoaded();
             }}
           />
@@ -199,7 +199,7 @@ const IntroAnimation = (props) => {
             width={300}
             height={300}
             src={image4.src}
-            onLoadingComplete={() => {
+            onLoad={() => {
               increaseNumberOfImagesLoaded();
             }}
           />
@@ -209,7 +209,7 @@ const IntroAnimation = (props) => {
               priority={true}
               className={styles.mainBackgroundImage}
               src={openingImageLarge}
-              onLoadingComplete={() => {
+              onLoad={() => {
                 increaseNumberOfImagesLoaded();
               }}
             />
@@ -221,7 +221,7 @@ const IntroAnimation = (props) => {
             width={300}
             height={300}
             src={image6.src}
-            onLoadingComplete={() => {
+            onLoad={() => {
               increaseNumberOfImagesLoaded();
             }}
           />
@@ -235,7 +235,7 @@ const IntroAnimation = (props) => {
             width={300}
             height={300}
             src={image7.src}
-            onLoadingComplete={() => {
+            onLoad={() => {
               increaseNumberOfImagesLoaded();
             }}
           />
@@ -245,7 +245,7 @@ const IntroAnimation = (props) => {
             width={300}
             height={300}
             src={image8.src}
-            onLoadingComplete={() => {
+            onLoad={() => {
               increaseNumberOfImagesLoaded();
             }}
           />
@@ -255,7 +255,7 @@ const IntroAnimation = (props) => {
             width={300}
             height={300}
             src={image9.src}
-            onLoadingComplete={() => {
+            onLoad={() => {
               increaseNumberOfImagesLoaded();
             }}
           />
@@ -265,7 +265,7 @@ const IntroAnimation = (props) => {
             width={300}
             height={300}
             src={image11.src}
-            onLoadingComplete={() => {
+            onLoad={() => {
               increaseNumberOfImagesLoaded();
             }}
           />
