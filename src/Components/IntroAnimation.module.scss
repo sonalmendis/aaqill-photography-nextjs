@@ -36,17 +36,18 @@ display: flex;
     grid-column-gap: 5em;
     grid-row-gap: 0px;
     transform: scale(0.3);
-    transition:all 1s;
-    transition-delay:1.75s;
+    will-change: transform;
+    transition:transform 2s;
+    transition-delay:2.5s;
 
 }
 
 .imageContainerColumn{
- 
+    will-change: transform;
     opacity: 1;    
-    margin-top: 1000vh;
-
-    transition: all 2s;
+    margin-top: 0;
+    transform:translateY(120%);
+    transition: transform 2.5s;
 position:relative;
 display: grid;
 grid-template-columns: 1fr;
@@ -56,7 +57,7 @@ grid-row-gap: 5em;
 justify-content: space-between;
 align-items: center;
 @include gvars.laptop {
-    margin-top: 450%;
+    // margin-top: 450%;
 }
 
     img{
@@ -64,17 +65,20 @@ align-items: center;
         height: 140vh;
         object-fit: cover;
         margin-top:0;
-        transition:height 2s, margin-top 2s ease, filter 2s, opacity 5s;
-        transition-delay:1.5s, 0s, 2s, 0s;
-        transition-property: height, margin-top, filter, opacity;
+        transition:height 1.5s, filter 2.25s, opacity 5s, transform 2s ease;
+        transition-delay:2.5s,3.5s, 0s, 0s;
+        transition-property: height,filter, opacity, transform;
         @include gvars.laptop {
             height: 100vh;
         }
         &:not(:first-child){
-            margin-top: 8em;
+          transform:translateY(100%);
         }
         &:nth-child(3){
-            margin-top: 20em;
+            transform:translateY(180%);
+        }
+        &:nth-child(4){
+            transform:translateY(260%);
         }
     }
     .maingBGImageContainer{

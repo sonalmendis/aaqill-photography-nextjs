@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState, useRef, useMemo } from "react";
 import { useForm } from "react-hook-form";
 import dynamic from "next/dynamic";
 
@@ -32,6 +32,11 @@ export default dynamic(() =>
       } = useForm({
         mode: "onTouched",
       });
+
+      // State for handling video visibility
+      const [isVideoContainerVisisble, setVideoContainerVisibility] =
+        useState(false);
+      const videocontainerRef = useRef(null); // useRef is used here as an alternative to querySelectorAll as it works better for single elements
 
       //Declares state variables for form submission success and error messages.
       const [isSuccess, setIsSuccess] = React.useState(false);
@@ -82,6 +87,28 @@ REMEMBER TO SET YOUR ACCES KEY
             console.log(error);
           });
       };
+
+      // Handle video container visibility (i.e lazy load it)
+      const VideoObserver = useMemo(() => {
+        return new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setVideoContainerVisibility(true);
+              console.log("container is visible");
+              VideoObserver.unobserve(entry.target);
+            }
+          });
+        });
+      }, []);
+
+      useEffect(() => {
+        VideoObserver.observe(videocontainerRef.current);
+
+        // Return a cleanup function to disconnect the observer
+        return () => {
+          VideoObserver.disconnect();
+        };
+      }, [VideoObserver, videocontainerRef]);
 
       return (
         <>
@@ -194,22 +221,28 @@ REMEMBER TO SET YOUR ACCES KEY
                 </form>
               </div>
             </div>
-            <div className="media-container">
-              <video
-                autoPlay
-                muted
-                poster={zoom.src}
-                loop
-                playsInline
-                className={`${styles["media-container"]} ${styles["zoom-video"]} ${styles["lazy-video"]}`}
-              >
-                <source
-                  src={
-                    "https://strapi-images.sgp1.digitaloceanspaces.com/cc57e51135e86adaf77cfadee1aaa50f.mp4"
-                  }
-                  type="video/mp4"
-                />
-              </video>
+            <div
+              className="media-container"
+              ref={videocontainerRef}
+              height="500"
+            >
+              {isVideoContainerVisisble && (
+                <video
+                  autoPlay
+                  muted
+                  poster={zoom.src}
+                  loop
+                  playsInline
+                  className={`${styles["media-container"]} ${styles["zoom-video"]} ${styles["lazy-video"]}`}
+                >
+                  <source
+                    src={
+                      "https://strapi-images.sgp1.digitaloceanspaces.com/cc57e51135e86adaf77cfadee1aaa50f.mp4"
+                    }
+                    type="video/mp4"
+                  />
+                </video>
+              )}
             </div>
           </div>
         </>

@@ -1,6 +1,7 @@
 import * as GlobalVariables from "@/styles/GlobalVariables";
 import homeStyles from "@/styles/index.module.scss";
 import Image from "next/image";
+
 import { useEffect, useState } from "react";
 import { useMediaQuery } from "react-responsive"; // A must for detecting responsivity
 import { useParallax } from "react-scroll-parallax";
@@ -55,7 +56,10 @@ import camelLarge from "../../public/img/photos/camel-large.webp";
 
 // Lazy loaded components
 // import ContactFormMedia from "@/Components/ContactFormMedia";
-const ContactFormMedia = dynamic(() => import("@/Components/ContactFormMedia"));
+const ContactFormMedia = dynamic(
+  () => import("@/Components/ContactFormMedia"),
+  { ssr: false }
+);
 
 export default function Home(props) {
   const setImagesLoaded = props.setImagesLoaded;
@@ -267,10 +271,10 @@ export default function Home(props) {
         >
           <div className={`${homeStyles["image-container"]}`}>
             {/* <Image
-              loader={({ width }) => width}
-              src={girlLarge}
-              alt="Girl looking out window"
-            /> */}
+                loader={({ width }) => width}
+                src={girlLarge}
+                alt="Girl looking out window"
+              /> */}
 
             <picture>
               <source
@@ -463,6 +467,7 @@ export default function Home(props) {
         </div>
 
         {/* CONTACT SECTION */}
+        <div id="contact-form-anch"></div>
         <div>
           <div className="outer-grid desktop-inner-grid">
             <ContactFormMedia className="vertical-padding-large"></ContactFormMedia>

@@ -90,7 +90,7 @@ const IntroAnimation = (props) => {
             });
           }, 2000);
         }, 100);
-      }, 2500);
+      }, 4000);
     }
 
     // Remove the intro animation after 10 seconds if the images still haven't loaded

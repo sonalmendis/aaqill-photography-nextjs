@@ -306,7 +306,7 @@ html{
 
 body{
     font-size:16px;	
-    font-family: "Sofia Pro", sans-serif;
+    font-family: var(--font2), sans-serif;
     font-weight: 400;
     font-style: normal;
     overflow-x: hidden;
@@ -618,7 +618,7 @@ MISC
 }
 
 .introReveal{
-    margin-top: 0 !important;
+    transform:translateY(0) !important;
 }
 
 .introMainBgBlurTransition{

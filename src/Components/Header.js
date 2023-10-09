@@ -69,7 +69,7 @@ const Header = () => {
           </div>
 
           <div className={styles["right-column"]}>
-            <Link href="/#contact-form">CONTACT</Link>
+            <Link href="/#contact-form-anch">CONTACT</Link>
             {/* Render the menu button*/}
           </div>
         </div>
