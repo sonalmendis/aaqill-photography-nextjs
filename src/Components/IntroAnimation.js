@@ -50,10 +50,9 @@ const IntroAnimation = (props) => {
     // Create an IntersectionObserver to observe the hidden elements
 
     if (numberOfImagesLoaded === 11) {
-      setImagesLoaded(true);
-
       imageContainerColumnRef.forEach((element) => {
         element.classList.add("introReveal");
+        setImagesLoaded(true);
       });
 
       wrapper.classList.add("introWrapperReveal");
