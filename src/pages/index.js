@@ -445,13 +445,21 @@ export default function Home(props) {
           className={`${homeStyles.WhiteSectionWrapper} tablet-inner-grid outer-grid vertical-padding-normal desktop-inner-grid`}
         >
           <div className={homeStyles.PhotoWithCaption}>
-            <Image src={kid} alt="Child with stick" />
+            <Image
+              src={kid}
+              alt="Child with stick"
+              sizes="(orientation:landscape) 30vw, 90vw"
+            />
 
             <h3>Another World, a different experience</h3>
           </div>
 
           <div className={homeStyles.PhotoWithCaption}>
-            <Image src={loversPerch} alt="Lovers Perch" />
+            <Image
+              src={loversPerch}
+              alt="Lovers Perch"
+              sizes="(orientation:landscape) 30vw, 90vw"
+            />
 
             <h3>Lover’s Perch</h3>
           </div>
@@ -459,7 +467,7 @@ export default function Home(props) {
 
         <div>
           <ImageDivider className={DividerStyles.ImageDividerWrapper}>
-            <Image src={camelLarge} alt="Camel" />
+            <Image src={camelLarge} alt="Camel" sizes="100vw" />
           </ImageDivider>
         </div>
 

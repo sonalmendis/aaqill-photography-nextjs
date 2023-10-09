@@ -223,7 +223,7 @@ REMEMBER TO SET YOUR ACCES KEY
             <div
               className="media-container"
               ref={videocontainerRef}
-              height="500"
+              style={{ minHeight: "700px" }}
             >
               {isVideoContainerVisisble && (
                 <video
