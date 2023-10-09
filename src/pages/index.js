@@ -33,8 +33,10 @@ import barberLarge from "../../public/img/photos/barber-large.webp";
 import templeLarge from "../../public/img/photos/temple-large.webp";
 
 import girlLarge from "../../public/img/photos/girl-large.webp";
+import girlPort from "../../public/img/photos/girl-port.webp";
 
 import landscapeLarge from "../../public/img/photos/nature-landscape-large.webp";
+import fullPort2 from "../../public/img/photos/full-2-port.webp";
 
 import sageLarge from "../../public/img/photos/sage-large.webp";
 
@@ -67,7 +69,7 @@ export default function Home(props) {
     query: `${GlobalVariables.device.laptop}`,
   });
 
-  const portrait = useMediaQuery({
+  const isPortrait = useMediaQuery({
     query: `${GlobalVariables.device.portrait}`,
   });
 
@@ -270,39 +272,21 @@ export default function Home(props) {
           className={`${homeStyles["full-width-image-section"]} vertical-padding-normal desktop-vertical-padding-large`}
         >
           <div className={`${homeStyles["image-container"]}`}>
-            {/* <Image
-                loader={({ width }) => width}
-                src={girlLarge}
-                alt="Girl looking out window"
-              /> */}
-
-            <picture>
-              <source
-                media={`${GlobalVariables.device.portrait}`}
-                srcSet="img/photos/girl-port.webp"
-              />
-              <source
-                media={`${GlobalVariables.device.laptop}`}
-                srcSet="img/photos/girl-large.webp"
-              />
-              <Image src={girlLarge} alt="Girl looking out window" />
-            </picture>
+            {isPortrait ? (
+              <Image src={girlPort} alt="Portrait" sizes="100vw" />
+            ) : (
+              <Image src={girlLarge} alt="Landscape" sizes="100vw" />
+            )}
 
             {/* <q>Photographer’s capture the essence of life</q> */}
           </div>
 
           <div className={`${homeStyles["image-container"]}`}>
-            <picture>
-              <source
-                media={`${GlobalVariables.device.portrait}`}
-                srcSet="img/photos/full-2-port.webp"
-              />
-              <source
-                media={`${GlobalVariables.device.laptop}`}
-                srcSet="img/photos/nature-landscape-large.webp"
-              />
-              <Image src={landscapeLarge} alt="Landscape" />
-            </picture>
+            {isPortrait ? (
+              <Image src={fullPort2} alt="Portrait" sizes="100vw" />
+            ) : (
+              <Image src={landscapeLarge} alt="Landscape" sizes="100vw" />
+            )}
 
             {/* <q>And the mysteries of nature</q> */}
           </div>
@@ -317,7 +301,12 @@ export default function Home(props) {
             <Spacer space="s8"></Spacer>
             <div className={`${BlackSectionStyles["section-container"]}`}>
               <div className={`${BlackSectionStyles["image-container"]}`}>
-                <Image src={sageLarge} alt="Sage" fill />
+                <Image
+                  src={sageLarge}
+                  alt="Sage"
+                  fill
+                  sizes="(min-width:768px) 33vw, 100vw"
+                />
 
                 {/* <div className={`${BlackSectionStyles["vertical-line"]}`}></div> */}
               </div>
@@ -412,7 +401,7 @@ export default function Home(props) {
           >
             <div className={`${BlackSectionStyles["section-container"]}`}>
               <div className={`${BlackSectionStyles["image-container"]}`}>
-                <Image src={potMakerMedium} alt="Pot Maker" />
+                <Image src={potMakerMedium} alt="Pot Maker" sizes="100vw" />
               </div>
 
               {/* <h3>THE POT MAKER</h3> */}
@@ -420,7 +409,7 @@ export default function Home(props) {
 
             <div className={`${BlackSectionStyles["section-container"]}`}>
               <div className={`${BlackSectionStyles["image-container"]}`}>
-                <Image src={rugsMedium} alt="Bazaars" />
+                <Image src={rugsMedium} alt="Bazaars" sizes="100vw" />
               </div>
               {/* <h3>Bazaar Galore</h3> */}
             </div>
@@ -430,13 +419,21 @@ export default function Home(props) {
             className={`${BlackSectionStyles["section3"]}  outer-grid tablet-inner-grid vertical-padding-normal desktop-inner-grid`}
           >
             <div className={homeStyles.PhotoWithCaption}>
-              <Image src={civ} alt="Civ" />
+              <Image
+                src={civ}
+                alt="Civ"
+                sizes="(orientation:landscape) 33vw, 90vw"
+              />
 
               <h3>Civilization</h3>
             </div>
 
             <div className={homeStyles.PhotoWithCaption}>
-              <Image src={potMaker2} alt="Pot Maker 2" />
+              <Image
+                src={potMaker2}
+                alt="Pot Maker 2"
+                sizes="(orientation:landscape) 33vw, 90vw"
+              />
 
               <h3>The Pot Maker</h3>
             </div>

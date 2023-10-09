@@ -78,6 +78,7 @@ max-width:25em;
       }
       img {
         width: 2.5em;
+        height:auto;
         margin-bottom: 1.4em;
         @include gvars.laptop {
     
@@ -128,7 +129,7 @@ max-width:25em;
         width: 100%;
         object-fit: cover;
         position:fixed;
-        top:0;
+        top:0;height: auto;
       }
       .image-container {
         margin-bottom: 3em;

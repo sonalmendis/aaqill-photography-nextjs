@@ -94,7 +94,6 @@ REMEMBER TO SET YOUR ACCES KEY
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               setVideoContainerVisibility(true);
-              console.log("container is visible");
               VideoObserver.unobserve(entry.target);
             }
           });

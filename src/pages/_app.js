@@ -78,7 +78,10 @@ export default function App({ Component, pageProps }) {
     <>
       <Loader />
       <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes"
+        />
         <link rel="icon" href="/favicon.ico" />
         <title>Aaqill Photography</title>
       </Head>

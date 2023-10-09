@@ -149,6 +149,7 @@ z-index:999;
       top: 0;
       margin-top: auto;
       margin-bottom: auto;
+      height:100%;
     }
     q {
       font-family: "Abhaya Libre", sans-serif;
@@ -273,6 +274,7 @@ z-index:999;
         align-items: center;
         img.logo {
           opacity:0;
+          height:auto;
 transition:all 1s;
 transition-delay:0.5s;
           width: 80%;

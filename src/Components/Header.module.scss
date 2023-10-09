@@ -26,6 +26,7 @@
     .left-column {
       .logo {
         width: 76px;
+        height:auto;
         display: block;
         @include gvars.laptop {
           width: 4em;
