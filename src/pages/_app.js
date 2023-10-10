@@ -68,7 +68,7 @@ export default function App({ Component, pageProps }) {
       const loader = document.getElementById("globalLoader");
       if (imagesLoaded) {
         if (loader) {
-          // loader.remove();
+          loader.remove();
         }
       }
     }
