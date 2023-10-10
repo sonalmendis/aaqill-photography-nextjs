@@ -3,7 +3,7 @@ import * as GlobalVariables from "@/styles/GlobalVariables";
 import styles from "./IntroAnimation.module.scss";
 import Image from "next/image";
 import { useMediaQuery } from "react-responsive"; // A must for detecting responsivity
-import openingImageLarge from "../../public/img/opening-image-large.webp";
+import openingImageLarge from "../../public/img/opening-image-large-cropped.webp";
 import openingBG from "../../public/img/opening-bg.webp";
 import image1 from "../../public/img/photos/introAnimation/1.jpg";
 import image2 from "../../public/img/photos/introAnimation/2.jpg";
@@ -50,10 +50,9 @@ const IntroAnimation = (props) => {
     // Create an IntersectionObserver to observe the hidden elements
 
     if (numberOfImagesLoaded === 11) {
-      console.log("images loaded");
+      setImagesLoaded(true);
       imageContainerColumnRef.forEach((element) => {
         element.classList.add("introReveal");
-        setImagesLoaded(true);
       });
 
       wrapper.classList.add("introWrapperReveal");
@@ -197,7 +196,6 @@ const IntroAnimation = (props) => {
               className={styles.mainBackgroundImage}
               src={openingImageLarge}
               onLoadingComplete={() => {
-                console.log("finished loading main img");
                 increaseNumberOfImagesLoaded();
               }}
             />
