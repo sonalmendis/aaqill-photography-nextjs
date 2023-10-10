@@ -152,7 +152,7 @@ export default function Home(props) {
               className={homeStyles.background}
               src={openingImageLarge}
               alt="Background"
-              priority
+              loading="eager"
             />
             <div className={homeStyles.gradientContainer}></div>
           </div>
@@ -165,14 +165,14 @@ export default function Home(props) {
                 className={`${homeStyles.mainOpeningImage} mainOpeningImage`}
                 src={openingImageLarge}
                 alt="Friends"
-                priority
+                loading="eager"
               />
             </div>
 
             <div ref={logoParallax.ref}>
               <Image
                 className={`${homeStyles.logo} openingLogo`}
-                priority
+                loading="eager"
                 src="../../img/opening-graphic.svg"
                 alt="Logo"
                 width={isDesktop ? 500 : 300}
