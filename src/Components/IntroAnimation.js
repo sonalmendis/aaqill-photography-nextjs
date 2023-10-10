@@ -50,6 +50,7 @@ const IntroAnimation = (props) => {
     // Create an IntersectionObserver to observe the hidden elements
 
     if (numberOfImagesLoaded === 11) {
+      console.log("images loaded");
       imageContainerColumnRef.forEach((element) => {
         element.classList.add("introReveal");
         setImagesLoaded(true);
@@ -196,6 +197,7 @@ const IntroAnimation = (props) => {
               className={styles.mainBackgroundImage}
               src={openingImageLarge}
               onLoadingComplete={() => {
+                console.log("finished loading main img");
                 increaseNumberOfImagesLoaded();
               }}
             />
