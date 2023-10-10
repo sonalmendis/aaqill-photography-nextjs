@@ -25,6 +25,7 @@ import quoteMark from "../../public/img/quote-mark.svg";
 
 import background from "../../public/img/opening-bg.webp";
 import openingImageLarge from "../../public/img/opening-image-large.webp";
+import openingImageCroppedMob from "../../public/img/opening-image-large-cropped-mob.webp";
 
 import shrineLarge from "../../public/img/photos/shrine-high-ppi.webp";
 
@@ -148,12 +149,21 @@ export default function Home(props) {
       <div className={`${homeStyles.HomeWrapper} homeWrapper`}>
         <div className={homeStyles.OpeningSectionWrapper}>
           <div className={homeStyles.FullScreenContainer}>
-            <Image
-              className={homeStyles.background}
-              src={openingImageLarge}
-              alt="Background"
-              loading="eager"
-            />
+            {isPortrait ? (
+              <Image
+                className={`${homeStyles.background}`}
+                src={openingImageCroppedMob}
+                alt="Friends"
+                loading="eager"
+              />
+            ) : (
+              <Image
+                className={`${homeStyles.background}`}
+                src={openingImageLarge}
+                alt="Friends"
+                loading="eager"
+              />
+            )}
             <div className={homeStyles.gradientContainer}></div>
           </div>
 
@@ -161,12 +171,21 @@ export default function Home(props) {
             <div
               className={`${homeStyles["desktop-background-container"]} desktop-inner-grid`}
             >
-              <Image
-                className={`${homeStyles.mainOpeningImage} mainOpeningImage`}
-                src={openingImageLarge}
-                alt="Friends"
-                loading="eager"
-              />
+              {isPortrait ? (
+                <Image
+                  className={`${homeStyles.mainOpeningImage} mainOpeningImage`}
+                  src={openingImageCroppedMob}
+                  alt="Friends"
+                  loading="eager"
+                />
+              ) : (
+                <Image
+                  className={`${homeStyles.mainOpeningImage} mainOpeningImage`}
+                  src={openingImageLarge}
+                  alt="Friends"
+                  loading="eager"
+                />
+              )}
             </div>
 
             <div ref={logoParallax.ref}>

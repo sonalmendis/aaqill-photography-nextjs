@@ -4,6 +4,7 @@ import styles from "./IntroAnimation.module.scss";
 import Image from "next/image";
 import { useMediaQuery } from "react-responsive"; // A must for detecting responsivity
 import openingImageLarge from "../../public/img/opening-image-large-cropped.webp";
+import openingImageCroppedMob from "../../public/img/opening-image-large-cropped-mob.webp";
 import openingBG from "../../public/img/opening-bg.webp";
 import image1 from "../../public/img/photos/introAnimation/1.jpg";
 import image2 from "../../public/img/photos/introAnimation/2.jpg";
@@ -27,6 +28,10 @@ const IntroAnimation = (props) => {
   };
   const desktop = useMediaQuery({
     query: `${GlobalVariables.device.laptop}`,
+  });
+
+  const isPortrait = useMediaQuery({
+    query: `${GlobalVariables.device.portrait}`,
   });
 
   useEffect(() => {
@@ -190,15 +195,27 @@ const IntroAnimation = (props) => {
             }}
           />
           <div className={styles.maingBGImageContainer}>
-            <Image
-              alt="test"
-              priority={true}
-              className={styles.mainBackgroundImage}
-              src={openingImageLarge}
-              onLoadingComplete={() => {
-                increaseNumberOfImagesLoaded();
-              }}
-            />
+            {isPortrait ? (
+              <Image
+                alt="test"
+                priority={true}
+                className={styles.mainBackgroundImage}
+                src={openingImageCroppedMob}
+                onLoadingComplete={() => {
+                  increaseNumberOfImagesLoaded();
+                }}
+              />
+            ) : (
+              <Image
+                alt="test"
+                priority={true}
+                className={styles.mainBackgroundImage}
+                src={openingImageLarge}
+                onLoadingComplete={() => {
+                  increaseNumberOfImagesLoaded();
+                }}
+              />
+            )}
             <div className={styles.gradientContainer}></div>
           </div>
           <Image
