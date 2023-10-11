@@ -1,101 +1,97 @@
 @use "../styles/GlobalVariables.module.scss" as gvars;
 
-
-.ContactFormMediaWrappeR{
-  padding:4em 0;
-    video.zoom-video {
-        width: 100%;
-        display: block;
-      }
-      #contact-form {
-        margin-bottom: 2em;
-      }
-      @include gvars.laptop {
-
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: 1fr;
-        grid-column-gap: 0px;
-        grid-row-gap: 0px;
-        align-items: center;
-        padding-top: 0 !important;
-        padding-bottom: 0 !important;
-      }
-
-
+.ContactFormMediaWrappeR {
+  padding: 4em 0;
+  video.zoom-video {
+    width: 100%;
+    display: block;
+  }
+  #contact-form {
+    margin-bottom: 2em;
+  }
+  @include gvars.laptop {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    align-items: center;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
 }
 
-.FormWrapper{
-  margin-bottom:2em;
-    width: 100%; //change this to your liking
-    @include gvars.laptop {
-      width: 50vh; //change this to your liking
-    }
-    input,
-    textarea {
-      border-radius: 8px;
-      border: 1px solid black;
-      background: transparent;
-      padding: 1.5em 1em;
-      resize: none;
-      width: 100%;
-      font-family: "Sofia Pro";
-      &::placeholder {
-        text-transform: uppercase;
-        letter-spacing: 2px;
-      }
-    }
-    textarea {
-      height: 200px;
-    }
-  
-    .button-loader-container {
-      position: relative;
-    }
-    button {
-      border-radius: 8px;
-      border: 1px solid black;
-      background: black;
-      color: white;
-      padding: 1.5em 1em;
+.FormWrapper {
+  margin-bottom: 2em;
+  width: 100%; //change this to your liking
+  @include gvars.laptop {
+    width: 50vh; //change this to your liking
+  }
+  input,
+  textarea {
+    border-radius: 8px;
+    border: 1px solid black;
+    background: transparent;
+    padding: 1.5em 1em;
+    resize: none;
+    width: 100%;
+    font-family: "Sofia Pro";
+    &::placeholder {
       text-transform: uppercase;
       letter-spacing: 2px;
-      resize: none;
-      width: 100%;
-      z-index: 2;
-      position: relative;
-      cursor: pointer;
-      opacity: 1;
-      transition: all 0.25s;
-      &.loading {
-        opacity: 0;
-        visibility: hidden;
-      }
     }
-  
-    .loader-container {
-      top: 0;
-      position: absolute;
-      width: 100%;
-      text-align: center;
-    }
-    .loader {
+  }
+  textarea {
+    height: 200px;
+  }
+
+  .button-loader-container {
+    position: relative;
+  }
+  button {
+    border-radius: 8px;
+    border: 1px solid black;
+    background: black;
+    color: white;
+    padding: 1.5em 1em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    resize: none;
+    width: 100%;
+    z-index: 2;
+    position: relative;
+    cursor: pointer;
+    opacity: 1;
+    transition: all 0.25s;
+    &.loading {
       opacity: 0;
-      transition: opacity 0.5s;
-      &.loading {
-        opacity: 1;
-      }
+      visibility: hidden;
     }
-  
-    .submission-message-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      text-align: center;
+  }
+
+  .loader-container {
+    top: 0;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+  }
+  .loader {
+    opacity: 0;
+    transition: opacity 0.5s;
+    &.loading {
+      opacity: 1;
     }
-  
-    .input-container {
-      margin-bottom: 1.8rem;
-    }
+  }
+
+  .submission-message-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .input-container {
+    margin-bottom: 1.8rem;
+  }
 }

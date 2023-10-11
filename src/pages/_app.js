@@ -83,7 +83,43 @@ export default function App({ Component, pageProps }) {
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, user-scalable=yes"
         />
         <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content="Welcome to Aaqil's Photography, where every picture tells a story. I aim to capture life's moments with an eye for detail and a passion for authenticity, creating timeless images that will be treasured for years to come."
+        />
         <title>Aaqill Photography</title>
+
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content="https://vssbox.com/aaqill-photography/"
+        />
+        <meta property="og:title" content="Aaqill Photography" />
+        <meta property="og:site_name" content="Aaqill Photography"></meta>
+        <meta
+          property="og:description"
+          content="Welcome to Aaqil's Photography, where every picture tells a story. I aim to capture life's moments with an eye for detail and a passion for authenticity, creating timeless images that will be treasured for years to come."
+        />
+        <meta
+          property="og:image"
+          content="https://strapi-images.sgp1.digitaloceanspaces.com/16a4d6f30f1bf7f793623dcdc43c6c37.jpg"
+          itemprop="image"
+        />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta
+          property="twitter:url"
+          content="https://vssbox.com/aaqill-photography/"
+        />
+        <meta property="twitter:title" content="Aaqill Photography" />
+        <meta
+          property="twitter:description"
+          content="Welcome to Aaqil's Photography, where every picture tells a story. I aim to capture life's moments with an eye for detail and a passion for authenticity, creating timeless images that will be treasured for years to come."
+        />
+        <meta
+          property="twitter:image"
+          content="https://strapi-images.sgp1.digitaloceanspaces.com/16a4d6f30f1bf7f793623dcdc43c6c37.jpg"
+        />
       </Head>
 
       <main className={`${SofiaPro.variable} ${AbhayaLibre.variable}`}>
