@@ -291,9 +291,19 @@ export default function Home(props) {
         >
           <div className={`${homeStyles["image-container"]}`}>
             {isPortrait ? (
-              <Image src={girlPort} alt="Portrait" sizes="100vw" />
+              <Image
+                src={girlPort}
+                alt="Portrait"
+                sizes="100vw"
+                loading="eager"
+              />
             ) : (
-              <Image src={girlLarge} alt="Landscape" sizes="100vw" />
+              <Image
+                src={girlLarge}
+                alt="Landscape"
+                sizes="100vw"
+                loading="eager"
+              />
             )}
 
             {/* <q>Photographer’s capture the essence of life</q> */}
@@ -301,9 +311,19 @@ export default function Home(props) {
 
           <div className={`${homeStyles["image-container"]}`}>
             {isPortrait ? (
-              <Image src={fullPort2} alt="Portrait" sizes="100vw" />
+              <Image
+                src={fullPort2}
+                alt="Portrait"
+                sizes="100vw"
+                loading="eager"
+              />
             ) : (
-              <Image src={landscapeLarge} alt="Landscape" sizes="100vw" />
+              <Image
+                src={landscapeLarge}
+                alt="Landscape"
+                sizes="100vw"
+                loading="eager"
+              />
             )}
 
             {/* <q>And the mysteries of nature</q> */}
