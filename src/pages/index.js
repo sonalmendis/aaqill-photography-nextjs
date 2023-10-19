@@ -439,7 +439,12 @@ export default function Home(props) {
           >
             <div className={`${BlackSectionStyles["section-container"]}`}>
               <div className={`${BlackSectionStyles["image-container"]}`}>
-                <Image src={potMakerMedium} alt="Pot Maker" sizes="100vw" />
+                <Image
+                  src={potMakerMedium}
+                  loading="eager"
+                  alt="Pot Maker"
+                  sizes="100vw"
+                />
               </div>
 
               {/* <h3>THE POT MAKER</h3> */}
@@ -447,7 +452,12 @@ export default function Home(props) {
 
             <div className={`${BlackSectionStyles["section-container"]}`}>
               <div className={`${BlackSectionStyles["image-container"]}`}>
-                <Image src={rugsMedium} alt="Bazaars" sizes="100vw" />
+                <Image
+                  src={rugsMedium}
+                  loading="eager"
+                  alt="Bazaars"
+                  sizes="100vw"
+                />
               </div>
               {/* <h3>Bazaar Galore</h3> */}
             </div>
