@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import * as GlobalVariables from "@/styles/GlobalVariables";
 import styles from "./IntroAnimation.module.scss";
-import homeStyles from "@/styles/Home.module.scss";
+import homeStyles from "@/styles/index.module.scss";
 import Image from "next/image";
 import { useMediaQuery } from "react-responsive"; // A must for detecting responsivity
 import openingImageLarge from "../../public/img/opening-image-large-cropped.webp";
