@@ -123,6 +123,7 @@ const IntroAnimation = (props) => {
           document.getElementById("globalLoader").remove();
           document.querySelector(`.${homeStyles.HomeWrapper}`).style.display =
             "block";
+          homeWrapper.classList.add("basicOpacityReveal");
           document
             .querySelector(".openingLogo")
             .classList.add("basicOpacityReveal");
