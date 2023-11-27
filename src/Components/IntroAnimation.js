@@ -55,95 +55,95 @@ const IntroAnimation = (props) => {
     );
     // Create an IntersectionObserver to observe the hidden elements
 
-    const revealImages = () => {
-      setImagesLoaded(true);
-      imageContainerColumnRef.forEach((element) => {
-        element.classList.add("introReveal");
-      });
+    const revealImages = (skipAnimations) => {
+      const loader = document.getElementById("globalLoader");
+      // // If skipAnimations is true, skip the animations and just show the images (i.e when the images don't load)
 
-      wrapper.classList.add("introWrapperReveal");
-      images.forEach((element) => {
-        element.classList.add("introReveal");
-        element.classList.add("introImgHeightTransition");
-      });
-
-      if (desktop) {
-        mainBackgroundImage.classList.add("introMainBgBlurTransition");
+      if (loader) {
+        loader.remove();
       }
 
-      // Stop observing the element once its been shown
-      setTimeout(() => {
-        // entry.target.style.display = "none";
-        // document.querySelector("html").style.overflowY = "scroll";
-        // mainBackgroundImage.classList.add("introMainBgOpacityTransition");
-        document.querySelector(`.${homeStyles.HomeWrapper}`).style.display =
-          "block";
-        document.querySelector("html").style.overflowY = "scroll"; // This is for mobile, this method isn't used on desktop because the scrollbar becoming visible after being invisible affects the doucment width
+      if (skipAnimations) {
+        console.log("skip animations");
+        loadOpeningSectionNow();
+      } else {
+        imageContainerColumnRef.forEach((element) => {
+          element.classList.add("introReveal");
+        });
+        wrapper.classList.add("introWrapperReveal");
+        images.forEach((element) => {
+          element.classList.add("introReveal");
+          element.classList.add("introImgHeightTransition");
+        });
+        if (desktop) {
+          mainBackgroundImage.classList.add("introMainBgBlurTransition");
+        }
         setTimeout(() => {
-          document.querySelector(`.${homeStyles.HomeWrapper}`).style.opacity =
-            "1";
-          document
-            .querySelector(".openingLogo")
-            .classList.add("basicOpacityReveal");
+          loadOpeningSectionNow();
+        }, 4000);
+      }
+    };
 
-          document
-            .querySelector(".mainOpeningImage")
-            .classList.add("basicOpacityReveal");
+    // Function to load the opening section without the pre-intro animation
+    const loadOpeningSectionNow = () => {
+      // entry.target.style.display = "none";
+      // document.querySelector("html").style.overflowY = "scroll";
+      // mainBackgroundImage.classList.add("introMainBgOpacityTransition");
+      document.querySelector(`.${homeStyles.HomeWrapper}`).style.display =
+        "block";
+      document.querySelector("html").style.overflowY = "scroll"; // This is for mobile, this method isn't used on desktop because the scrollbar becoming visible after being invisible affects the doucment width
+      setTimeout(() => {
+        document.querySelector(`.${homeStyles.HomeWrapper}`).style.opacity =
+          "1";
+        document
+          .querySelector(".openingLogo")
+          .classList.add("basicOpacityReveal");
 
-          document.querySelector(".header").classList.add("basicOpacityReveal");
-          setTimeout(() => {
-            hiddenElementsRef.forEach((element) => {
-              element.style.display = "none";
-            });
-          }, 2000);
-        }, 100);
-      }, 4000);
+        document
+          .querySelector(".mainOpeningImage")
+          .classList.add("basicOpacityReveal");
+
+        document.querySelector(".header").classList.add("basicOpacityReveal");
+        setTimeout(() => {
+          hiddenElementsRef.forEach((element) => {
+            element.style.display = "none";
+          });
+        }, 2000);
+      }, 100);
     };
 
     if (numberOfImagesLoaded === 11) {
+      setImagesLoaded(true);
       revealImages();
     }
 
     // Remove the intro animation after 10 seconds if the images still haven't loaded
     // This acts as a failsafe in case the intro animation doesn't trigger for whatever reason
     const timeoutFunction = setTimeout(() => {
-      const loader = document.getElementById("globalLoader");
+      // Get the homeWrapper element
       const homeWrapper = document.querySelector(`.${homeStyles.HomeWrapper}`);
-      const openingLogo = document.querySelector(".openingLogo");
-      const mainOpeningImage = document.querySelector(".mainOpeningImage");
-      const header = document.querySelector(".header");
-      const introAnimationContainer = document.querySelector(
-        ".introAnimationContainer"
-      );
 
-      // If the images still haven't loaded after 10 seconds, remove the intro animation
-      if (numberOfImagesLoaded !== 11) {
-        if ((loader, homeWrapper, openingLogo, mainOpeningImage, header)) {
-          introAnimationContainer.remove();
-          document.getElementById("globalLoader").remove();
-          document.querySelector(`.${homeStyles.HomeWrapper}`).style.display =
-            "block";
-          homeWrapper.classList.add("basicOpacityReveal");
-          document
-            .querySelector(".openingLogo")
-            .classList.add("basicOpacityReveal");
+      // Get the computed style of the homeWrapper element
+      const computedStyle = window.getComputedStyle(homeWrapper);
 
-          document
-            .querySelector(".mainOpeningImage")
-            .classList.add("basicOpacityReveal");
+      // Extract the opacity property from the computed style
+      const WrapperOpacity = computedStyle.getPropertyValue("opacity");
 
-          document.querySelector(".header").classList.add("basicOpacityReveal");
-        }
+      // If the opacity is 0, then the intro animation hasn't triggered, so trigger it now
+      if (WrapperOpacity === "0" || numberOfImagesLoaded !== 11) {
+        const skipAnimations = true;
+        revealImages(skipAnimations);
       }
     }, 10000);
+
     // Observe all hidden elements
 
-    const opacityTimeoutCheck = setTimeout(() => {
-      const homeWrapper = document.querySelector(`.${homeStyles.HomeWrapper}`);
-      if ((homeWrapper.style.opacity = "0")) {
-        revealImages();
-      }
-    }, 10000);
+    // const opacityTimeoutCheck = setTimeout(() => {
+    //   const homeWrapper = document.querySelector(`.${homeStyles.HomeWrapper}`);
+    //   if ((homeWrapper.style.opacity = "0")) {
+    //     revealImages();
+    //   }
+    // }, 10000);
 
     return () => {
       clearTimeout(timeoutFunction);
